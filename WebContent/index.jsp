@@ -7,6 +7,7 @@
 <title>Welcome</title>
 </head>
 <body>
-欢迎进入JavaWeb的世界！
+欢迎进入JavaWeb的世界！<%=request.getAttribute("username") %>
+
 </body>
 </html>

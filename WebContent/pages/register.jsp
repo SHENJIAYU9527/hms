@@ -1,8 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
-
+<head>
 <META http-equiv="Content-Type" content="text/html; charset=utf-8">
-<TITLE>登录页面</TITLE>
+<TITLE>注册界面</TITLE>
 
 
 <STYLE>
@@ -143,41 +145,41 @@ a {
 
 </STYLE>
 <META name="GENERATOR" content="MSHTML 11.00.9600.17496">
-</HEAD>
+</head>
 <BODY>
 	<div class="top_div">
 	<h1 id="hospital" align="center">宁夏医科大学总医院慢病管理工作平台</h1>
 	</div>
 	<DIV
-		style="background: rgb(255, 255, 255); margin: -100px auto auto; border: 1px solid rgb(231, 231, 231); border-image: none; width: 400px; height: 200px; text-align: center;">
+		style="background: rgb(255, 255, 255); margin: -100px auto auto; border: 1px solid rgb(231, 231, 231); border-image: none; width: 400px; height: 250px; text-align: center;">
 
-		<form action="login" method="post">
+		<form action="doRegister" method="post" id="register_form" name="register_form">
 			<DIV style="width: 165px; height: 96px; position: absolute;">
 				<DIV class="tou"></DIV>
 				<DIV class="initial_left_hand" id="left_hand"></DIV>
 				<DIV class="initial_right_hand" id="right_hand"></DIV>
 			</DIV>
 
-
-
 			<P style="padding: 30px 0px 10px; position: relative;">
 				<SPAN class="u_logo"></SPAN> <INPUT class="ipt" type="text"
-					placeholder="请输入用户名或邮箱" value="">
+					placeholder="请输入用户名或邮箱" name="username">
 			</P>
-			<P style="position: relative;">
+			<P style="padding: 0px 0px 10px; position: relative;">
 				<SPAN class="p_logo"></SPAN> <INPUT class="ipt" id="password"
-					type="password" placeholder="请输入密码" value="">
+					type="password" placeholder="请输入密码" name="password">
+			</P>
+			<P style="padding: 0px 0px 10px; position: relative;"">
+				<SPAN class="p_logo"></SPAN> <INPUT class="ipt" id="password2"
+					type="password" placeholder="请再次输入密码" name="password2">
 			</P>
 			<DIV
 				style="height: 50px; line-height: 50px; margin-top: 30px; border-top-color: rgb(231, 231, 231); border-top-width: 1px; border-top-style: solid;">
 				<P style="margin: 0px 35px 20px 45px;">
-					<SPAN style="float: left;"><A
-						style="color: rgb(204, 204, 204);" href="#">忘记密码?</A></SPAN> <SPAN
-						style="float: right;"><A
-						style="color: rgb(204, 204, 204); margin-right: 10px;" href="#">注册</A>
-						<A
+					<SPAN style="float: right;"><A
+						style="color: rgb(204, 204, 204); margin-right: 10px; position:right;" href="/javaiseasy/Login">登陆</A>
+						<input type="submit" value="注册"
 						style="background: rgb(0, 142, 173); padding: 7px 10px; border-radius: 4px; border: 1px solid rgb(26, 117, 152); border-image: none; color: rgb(255, 255, 255); font-weight: bold;"
-						href="#">登录</A> </SPAN>
+						> </SPAN>
 				</P>
 			</DIV>
 		</form>
@@ -187,7 +189,7 @@ a {
 	<SCRIPT type="text/javascript">
 		$(function() {
 			//得到焦点
-			$("#password").focus(function() {
+			$("#password,#password2").focus(function() {
 				$("#left_hand").animate({
 					left : "150",
 					top : " -38"
@@ -210,7 +212,7 @@ a {
 				}, 2000);
 			});
 			//失去焦点
-			$("#password").blur(function() {
+			$("#password,#password2").blur(function() {
 				$("#left_hand").attr("class", "initial_left_hand");
 				$("#left_hand").attr("style", "left:100px;top:-12px;");
 				$("#right_hand").attr("class", "initial_right_hand");

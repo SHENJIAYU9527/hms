@@ -12,32 +12,26 @@ import javax.servlet.http.HttpServletResponse;
  * @author ningkai
  * @since 2016-10-26
  */
+
 @WebServlet("/Login")
 public class LoginUI extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public LoginUI() {
-        super();
-        
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html");
-		request.getRequestDispatcher("/html/login.html").forward(request,response);
+	public LoginUI() {
+		super();
 
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		response.setContentType("text/html");
+		request.getRequestDispatcher("/pages/login.jsp").forward(request, response);
+
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		doGet(request, response);
 	}
 
