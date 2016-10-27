@@ -64,7 +64,7 @@ public class InsertionSort {
 	}
 
 	public static void main(String[] args) {
-		int[] array = { 3, -1, 0, -8, -1, 1 };
+		int[] array = { 3, -1, 0, -8, 8, 1 };
 
 		insertSortByDesc(array);
 		printArray(array);

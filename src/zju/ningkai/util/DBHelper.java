@@ -115,6 +115,7 @@ public class DBHelper {
 					ps.setObject(j + 1, parameters[j]);
 				}
 			}
+			
 			rs = ps.executeQuery();
 			// 得到有多少列，getMetaData()得到数据源，
 			int columnCount = rs.getMetaData().getColumnCount();

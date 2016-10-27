@@ -52,7 +52,7 @@ body {
 }
 
 .u_logo {
-	background: url("images/login/username.png") no-repeat;
+	background: url("images/login/email.png") no-repeat;
 	padding: 10px 10px;
 	position: absolute;
 	top: 43px;
