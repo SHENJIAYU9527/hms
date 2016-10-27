@@ -6,7 +6,6 @@
 <META http-equiv="Content-Type" content="text/html; charset=utf-8">
 <TITLE>注册界面</TITLE>
 
-
 <STYLE>
 body {
 	background: #ebebeb;
@@ -58,11 +57,12 @@ body {
 	top: 43px;
 	left: 40px;
 }
+
 .e_logo {
 	background: url("images/login/email.png") no-repeat;
 	padding: 10px 10px;
 	position: absolute;
-	top: 12px;
+	top: 21px;
 	left: 40px;
 }
 
@@ -73,7 +73,6 @@ body {
 	top: 12px;
 	left: 40px;
 }
-
 
 a {
 	text-decoration: none;
@@ -146,54 +145,59 @@ a {
 	position: relative;
 	top: 80px;
 	font-size: 50px;
-	font-color: 0000f;
 }
 </STYLE>
-<META name="GENERATOR" content="MSHTML 11.00.9600.17496">
+
+
+
 </head>
 <BODY>
+
 	<div class="top_div">
 		<h1 id="hospital" align="center">宁夏医科大学总医院慢病管理工作平台</h1>
 	</div>
 	<DIV
 		style="background: rgb(255, 255, 255); margin: -100px auto auto; border: 1px solid rgb(231, 231, 231); border-image: none; width: 400px; height: 250px; text-align: center;">
+		<div class="container">
+			<form action="doRegister" method="post" id="register_form"
+				class="form-horizontal">
+				<DIV style="width: 165px; height: 96px; position: absolute;">
+					<DIV class="tou"></DIV>
+					<DIV class="initial_left_hand" id="left_hand"></DIV>
+					<DIV class="initial_right_hand" id="right_hand"></DIV>
+				</DIV>
 
-		<form action="doRegister" method="post" id="register_form"
-			name="register_form">
-			<DIV style="width: 165px; height: 96px; position: absolute;">
-				<DIV class="tou"></DIV>
-				<DIV class="initial_left_hand" id="left_hand"></DIV>
-				<DIV class="initial_right_hand" id="right_hand"></DIV>
-			</DIV>
-
-			<P style="padding: 30px 0px 10px; position: relative;">
-				<SPAN class="u_logo"></SPAN> <INPUT class="ipt" type="text"
-					placeholder="请输入用户名" name="username">
-			</P>
-			<P style="padding: 0px 0px 10px; position: relative;">
-				<SPAN class="p_logo"></SPAN> <INPUT class="ipt" id="password"
-					type="password" placeholder="请输入密码" name="password">
-			</P>
-			<P style="padding: 0px 0px 10px; position: relative;">
-				<SPAN class="e_logo"></SPAN> <INPUT class="ipt" id="email"
-					type="text" placeholder="请输入您的邮箱" name="email">
-			</P>
-			<DIV
-				style="height: 50px; line-height: 50px; margin-top: 30px; border-top-color: rgb(231, 231, 231); border-top-width: 1px; border-top-style: solid;">
-				<P style="margin: 0px 35px 20px 45px;">
-					<SPAN style="float: right;"><A
-						style="color: rgb(204, 204, 204); margin-right: 10px; position: right;"
-						href="/javaiseasy/Login">登陆</A> <input type="submit" value="注册"
-						style="background: rgb(0, 142, 173); padding: 7px 10px; border-radius: 4px; border: 1px solid rgb(26, 117, 152); border-image: none; color: rgb(255, 255, 255); font-weight: bold;">
-					</SPAN>
+				<P style="padding: 30px 0px 10px; position: relative;">
+					<SPAN class="u_logo"></SPAN> <INPUT class="ipt" type="text"
+						placeholder="请输入用户名" name="username">
 				</P>
-			</DIV>
-		</form>
-	</DIV>
+				<P style="position: relative;">
+					<SPAN class="p_logo"></SPAN> <INPUT class="ipt" id="password"
+						type="password" placeholder="请输入您的密码" name="password">
+				</P>
+				<P style="padding: 10px 0px 0px; position: relative;">
+					<SPAN class="e_logo"></SPAN> <INPUT class="ipt" type="text"
+						placeholder="请输入您的邮箱" name="email"><span></span>
+				</P>
+
+				<DIV
+					style="height: 50px; line-height: 50px; margin-top: 30px; border-top-color: rgb(231, 231, 231); border-top-width: 1px; border-top-style: solid;">
+					<P style="margin: 0px 35px 20px 45px;">
+						<SPAN style="float: left;"><A
+							style="color: rgb(204, 204, 204); margin-right: 10px;"
+							href="/javaiseasy/Login">已有账户，登陆</A></SPAN> <span style="float: right;"><input
+							type="submit" value="注册"
+							style="background: rgb(0, 142, 173); padding: 8px 12px; border-radius: 4px; border: 1px solid rgb(26, 117, 152); border-image: none; color: rgb(255, 255, 255); font-weight: bold;">
+						</SPAN>
+					</P>
+				</DIV>
+			</form>
+
+		</DIV>
+	</div>
 	<div style="text-align: center;"></div>
-	<SCRIPT src="js/jquery/jquery-1.9.1.min.js" type="text/javascript"></SCRIPT>
 
-
+<SCRIPT src="js/jquery/jquery-1.10.2.min.js" type="text/javascript"></SCRIPT>
 	<SCRIPT type="text/javascript">
 		$(function() {
 			//得到焦点
@@ -207,6 +211,7 @@ a {
 							$("#left_hand").attr("class", "left_hand");
 						}
 					}
+
 				}, 2000);
 				$("#right_hand").animate({
 					right : "-64",
@@ -228,6 +233,7 @@ a {
 			});
 		});
 	</SCRIPT>
-	
+
+
 </BODY>
 </html>
