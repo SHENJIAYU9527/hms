@@ -66,7 +66,29 @@ body {
 	top: 12px;
 	left: 40px;
 }
+.ati {
+	background: url("images/status/tip.png") no-repeat;
+	padding: 10px 10px;
+	position: relative;
+	top: 12px;
+	right: 5px;
+}
 
+.err {
+	background: url("images/status/error.png") no-repeat;
+	padding: 10px 10px;
+	position: relative;
+	top: 12px;
+	right: 5px;
+}
+
+.ok {
+	background: url("images/status/success.png") no-repeat;
+	padding: 10px 10px;
+	position: relative;
+	top: 12px;
+	right: 5px;
+}
 a {
 	text-decoration: none;
 }
@@ -148,7 +170,7 @@ a {
 		<h1 id="hospital" align="center">宁夏医科大学总医院慢病管理工作平台</h1>
 	</div>
 	<DIV
-		style="background: rgb(255, 255, 255); margin: -100px auto auto; border: 1px solid rgb(231, 231, 231); border-image: none; width: 400px; height: 200px; text-align: center;">
+		style="background: rgb(255, 255, 255); margin: -100px auto auto; border: 1px solid rgb(231, 231, 231); border-image: none; width: 400px; height: 230px; text-align: center;">
 
 		<form action="DoLogin" method="post" id="login_form" name="login_form">
 			<DIV style="width: 165px; height: 96px; position: absolute;">
@@ -159,14 +181,14 @@ a {
 
 
 
-			<P style="padding: 30px 0px 10px; position: relative;">
+			<div style="padding: 30px 0px 10px; position: relative;">
 				<SPAN class="u_logo"></SPAN> <INPUT class="ipt" type="text"
-					placeholder="请输入用户名或邮箱" name="loginname"><span></span>
-			</P>
-			<P style="position: relative;">
+					placeholder="请输入用户名或邮箱" name="loginname"><label></label>
+			</div>
+			<div style="position: relative;">
 				<SPAN class="p_logo"></SPAN> <INPUT class="ipt" id="password"
-					type="password" placeholder="请输入密码" name="loginpass"><br><span></span>
-			</P>
+					type="password" placeholder="请输入密码" name="loginpass"><label></label>
+			</div>
 
 			<DIV
 				style="height: 50px; line-height: 50px; margin-top: 30px; border-top-color: rgb(231, 231, 231); border-top-width: 1px; border-top-style: solid;">
@@ -185,6 +207,7 @@ a {
 	</DIV>
 	<div style="text-align: center;"></div>
 	<SCRIPT src="js/jquery/jquery-1.9.1.min.js" type="text/javascript"></SCRIPT>
+	<SCRIPT src="js/main/validation_login.js" type="text/javascript"></SCRIPT>
 	<SCRIPT type="text/javascript">
 		$(function() {
 			//得到焦点

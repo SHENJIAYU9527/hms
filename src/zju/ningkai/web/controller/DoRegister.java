@@ -32,14 +32,15 @@ public class DoRegister extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		String username=request.getParameter("username").trim();
 		String password=request.getParameter("password").trim();
+		String email=request.getParameter("email").trim();
 		DBHelper helper=new DBHelper();
 		String sql="select count(*) from userinfo where username=?";
 		Object[] parameters={username};
 		int existence=helper.queryCount(sql, parameters);
 		int success=0;
 		if(existence==0){
-			String sql_insert="insert into userinfo (seq,username,password,auth,status)values(4,?,?,0,0)";
-			Object[] parameters2={username,password};
+			String sql_insert="insert into userinfo (username,password,auth,status,email)values(?,?,0,0,?)";
+			Object[] parameters2={username,password,email};
 			success=helper.update(sql_insert, parameters2);
 		}
 		if(success==1){

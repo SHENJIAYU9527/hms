@@ -21,33 +21,27 @@ window.onload = function() {
 	var aInput = $("input");
 	var oName = aInput[0];
 	var oPwd = aInput[1];
-	var oEmail = aInput[2];
+
 
 	// 选择所有p元素
 	var aLabel = $("label");
 	var name_msg = aLabel[0];
 	var psw_msg = aLabel[1];
-	var email_msg = aLabel[2];
+
 	// 根据id选择提示元素
 	var count = $("b#count");
-	var aEm = $("em");
 	var name_length = 0;
 
-	// 正则表达式创建有两种方法
-	var re = new RegExp("a", "i");
-	var re2 = /a/i;
 
 	$(":submit").first().attr("disabled", true);
 
 	// 用户名验证
 	oName.onfocus = function() {
 		name_msg.style.display = "block";
-		name_msg.innerHTML = '<i class="ati"></i>6-25个字符，一个汉字为两个字符，推荐使用中文会员名';
+		name_msg.innerHTML = '<i class="ati"></i>用户名为6-25个字符';
 
 	}
-	oName.onkeyup = function() {
-
-	}
+	
 	oName.onblur = function() {
 		// 含有非法字符
 		var reg_username = /[^\w\u4e00-\u9fa5]/g; // 数字、字母（不区分大小写）、汉字、下划线 //
@@ -73,7 +67,7 @@ window.onload = function() {
 		else {
 			name_msg.innerHTML = '<i class="ok"></i> OK!'
 				var aOK=$(".ok").size();
-			if(aOK>=3){
+			if(aOK>=2){
 				$(":submit").first().removeAttr("disabled");
 			}
 		}
@@ -84,7 +78,7 @@ window.onload = function() {
 	oPwd.onfocus = function() {
 
 		psw_msg.style.display = "block";
-		psw_msg.innerHTML = '<i class="ati"></i>6-16个字符，推荐字母加数字加符号的组合密码。'
+		psw_msg.innerHTML = '<i class="ati"></i>密码应为6-16个字符。'
 
 	}
 
@@ -119,40 +113,17 @@ window.onload = function() {
 		// OK
 		else {
 			psw_msg.innerHTML = '<i class="ok"></i>OK!'
-			var aOK=$(".ok").size();
-			if(aOK>=3){
-				$(":submit").first().removeAttr("disabled");
-			}
-		}
-
-	}
-
-	// 邮箱验证
-	oEmail.onfocus = function() {
-
-		email_msg.style.display = "block";
-		email_msg.innerHTML = '<i class="ati"></i>请输入您的个人邮箱的正确格式 。'
-
-	}
-	oEmail.onblur = function() {
-		var re_email = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-		// 不能为空
-		if (this.value == "") {
-			email_msg.innerHTML = '<i class="err"></i>邮箱不能为空！'
-		}
-		// 邮箱格式正确
-		else if (!re_email.test(this.value)) {
-			email_msg.innerHTML = '<i class="err"></i>请输入正确的邮箱格式！'
-		} else {
-			debugger;
-			email_msg.innerHTML = '<i class="ok"></i>OK!'
-				var aOK=$(".ok").size();
-			if(aOK>=3){
 				debugger;
+			var aOK=$(".ok").size();
+			
+			if(aOK>=2){
 				$(":submit").first().removeAttr("disabled");
 			}
 		}
 
 	}
+
+	
+	
 
 }

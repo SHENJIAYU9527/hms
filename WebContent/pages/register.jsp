@@ -51,7 +51,7 @@ body {
 }
 
 .u_logo {
-	background: url("images/login/email.png") no-repeat;
+	background: url("images/login/user.png") no-repeat;
 	padding: 10px 10px;
 	position: absolute;
 	top: 43px;
@@ -72,6 +72,30 @@ body {
 	position: absolute;
 	top: 12px;
 	left: 40px;
+}
+
+.ati {
+	background: url("images/status/tip.png") no-repeat;
+	padding: 10px 10px;
+	position: relative;
+	top: 12px;
+	right: 5px;
+}
+
+.err {
+	background: url("images/status/error.png") no-repeat;
+	padding: 10px 10px;
+	position: relative;
+	top: 12px;
+	right: 5px;
+}
+
+.ok {
+	background: url("images/status/success.png") no-repeat;
+	padding: 10px 10px;
+	position: relative;
+	top: 12px;
+	right: 5px;
 }
 
 a {
@@ -146,6 +170,17 @@ a {
 	top: 80px;
 	font-size: 50px;
 }
+
+#register_btn {
+	background: rgb(0, 142, 173);
+	padding: 8px 12px;
+	border-radius: 4px;
+	border-image: none;
+	color: rgb(255, 255, 255);
+	font-weight: bold;
+}
+
+
 </STYLE>
 
 
@@ -157,7 +192,7 @@ a {
 		<h1 id="hospital" align="center">宁夏医科大学总医院慢病管理工作平台</h1>
 	</div>
 	<DIV
-		style="background: rgb(255, 255, 255); margin: -100px auto auto; border: 1px solid rgb(231, 231, 231); border-image: none; width: 400px; height: 250px; text-align: center;">
+		style="background: rgb(255, 255, 255); margin: -100px auto auto; border: 1px solid rgb(231, 231, 231); border-image: none; width: 400px; height: 265px; text-align: center;">
 		<div class="container">
 			<form action="doRegister" method="post" id="register_form"
 				class="form-horizontal">
@@ -167,27 +202,26 @@ a {
 					<DIV class="initial_right_hand" id="right_hand"></DIV>
 				</DIV>
 
-				<P style="padding: 30px 0px 10px; position: relative;">
+				<div style="padding: 30px 0px 10px; position: relative;">
 					<SPAN class="u_logo"></SPAN> <INPUT class="ipt" type="text"
-						placeholder="请输入用户名" name="username">
-				</P>
-				<P style="position: relative;">
+						placeholder="请输入用户名" name="username"><label></label>
+				</div>
+				<div style="position: relative;">
 					<SPAN class="p_logo"></SPAN> <INPUT class="ipt" id="password"
-						type="password" placeholder="请输入您的密码" name="password">
-				</P>
-				<P style="padding: 10px 0px 0px; position: relative;">
+						type="password" placeholder="请输入您的密码" name="password"><label></label>
+				</div>
+				<div style="padding: 10px 0px 0px; position: relative;">
 					<SPAN class="e_logo"></SPAN> <INPUT class="ipt" type="text"
-						placeholder="请输入您的邮箱" name="email"><span></span>
-				</P>
+						placeholder="请输入您的邮箱" name="email"><label></label>
+				</div>
 
 				<DIV
-					style="height: 50px; line-height: 50px; margin-top: 30px; border-top-color: rgb(231, 231, 231); border-top-width: 1px; border-top-style: solid;">
+					style="height: 50px; line-height: 30px; margin-top: 20px; border-top-color: rgb(231, 231, 231); border-top-width: 1px; border-top-style: solid;">
 					<P style="margin: 0px 35px 20px 45px;">
 						<SPAN style="float: left;"><A
 							style="color: rgb(204, 204, 204); margin-right: 10px;"
 							href="/javaiseasy/Login">已有账户，登陆</A></SPAN> <span style="float: right;"><input
-							type="submit" value="注册"
-							style="background: rgb(0, 142, 173); padding: 8px 12px; border-radius: 4px; border: 1px solid rgb(26, 117, 152); border-image: none; color: rgb(255, 255, 255); font-weight: bold;">
+							type="submit" value="注册" id="register_btn">
 						</SPAN>
 					</P>
 				</DIV>
@@ -197,7 +231,9 @@ a {
 	</div>
 	<div style="text-align: center;"></div>
 
-<SCRIPT src="js/jquery/jquery-1.10.2.min.js" type="text/javascript"></SCRIPT>
+	<SCRIPT src="js/jquery/jquery-1.10.2.min.js" type="text/javascript"></SCRIPT>
+	<SCRIPT src="js/main/validation.js" type="text/javascript"></SCRIPT>
+
 	<SCRIPT type="text/javascript">
 		$(function() {
 			//得到焦点
