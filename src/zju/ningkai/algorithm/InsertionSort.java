@@ -63,12 +63,6 @@ public class InsertionSort {
 		System.out.println("}");
 	}
 
-	public static void main(String[] args) {
-		int[] array = { 3, -1, 0, -8, 8, 1 };
 
-		insertSortByDesc(array);
-		printArray(array);
-
-	}
 
 }
