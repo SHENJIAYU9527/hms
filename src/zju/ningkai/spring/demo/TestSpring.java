@@ -20,6 +20,6 @@ public class TestSpring {
  
 	@Test
 	public void test1(){
-		accountService.transfer("aaa", "bbb", 200);
+		accountService.transfer("aaa", "bbb", 150);
 	}
 }

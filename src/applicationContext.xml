@@ -9,22 +9,13 @@
 	http://www.springframework.org/schema/aop
 	http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
 	http://www.springframework.org/schema/tx 
-	http://www.springframework.org/schema/tx/spring-tx-4.3.xsd"
-	default-lazy-init="true" default-autowire="byName" default-init-method=""
-	default-destroy-method="">
+	http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 	<!-- 用于读取properties文件，此处将数据库连接的用户名密码等存在db.properties文件中 -->
-	<context:property-placeholder location="classpath:db.properties"/>
-	<!-- 
-	<bean id="propertyConfigurer"
-		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="locations">
-			<list>
-				<value>WEB-INF/db.properties</value>
-			</list>
-		</property>
-	</bean>
-	 -->
-	 <!-- 配置c3p0连接池 -->
+	<context:property-placeholder location="classpath:db.properties" />
+	<!-- <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"> 
+		<property name="locations"> <list> <value>WEB-INF/db.properties</value> </list> 
+		</property> </bean> -->
+	<!-- 配置c3p0连接池 -->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<property name="driverClass" value="${driver}" />
 		<property name="jdbcUrl" value="${url}" />
@@ -32,23 +23,47 @@
 		<property name="password" value="${password}" />
 
 	</bean>
+	<!-- <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"> 
+		<property name="dataSource" ref="dataSource"></property> </bean> -->
 	<!-- 配置业务层类 -->
 	<bean id="accountService" class="zju.ningkai.spring.demo.AccountServiceImpl">
-		<property name="accountDao" ref="accountDao"/>
+		<property name="accountDao" ref="accountDao" />
 	</bean>
 	<!-- 配置dao层类 -->
 	<bean id="accountDao" class="zju.ningkai.spring.demo.AccountDaoImpl">
-		<property name="dataSource" ref="dataSource"/>
+		<property name="dataSource" ref="dataSource" />
+
 	</bean>
-	<!-- 配置数据库连接 
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
-		destroy-method="close">
-		<property name="driverClassName" value="${jdbc.driverClassName}" />
-		<property name="url" value="${jdbc.url}" />
-		<property name="username" value="${jdbc.username}" />
-		<property name="password" value="${jdbc.password}" />
+	<!-- 配置事务管理器 -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
 	</bean>
-	-->
+	<!-- 开启注解事务 -->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+	<!-- 
+	配置业务类代理
+	<bean id="accountServiceProxy"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		配置目标对象
+		<property name="target" ref="accountService"></property>
+		注入事务管理器
+		<property name="transactionManager" ref="transactionManager"></property>
+		注入事务属性
+		<property name="transactionAttributes">
+			<props>
+				
+				事务属性的格式：
+				    *PROPAGATION :事务的传播行为
+				    *ISOLATION   :事务的隔离级别
+				    *readOnly    :只读(不可以进行修改、删除、插入)
+				    *-Exception  :发生异常回滚事务
+				    *+Exception  :发生异常不回滚事务
+				
+				<prop key="transfer">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean> -->
 
 
 </beans>
