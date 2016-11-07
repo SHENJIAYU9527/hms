@@ -97,7 +97,7 @@ public class DBHelper {
 	}
 
 	/**
-	 * 普通查询，在封装的时候麻烦
+	 * 普通查询，在封装的时候麻烦,解析的时候麻烦
 	 * 
 	 * @param sql
 	 * @param parameters
@@ -134,6 +134,41 @@ public class DBHelper {
 		}
 		return list;
 	}
+	/**
+	 * @what 查询结果为单列
+	 * @param sql
+	 * @param parameters
+	 * @return String
+	 */
+	public ArrayList<String> queryString(String sql, Object[] parameters) {
+		ArrayList<String> result=new ArrayList<String>();
+		try {
+			conn = getConnection();
+			ps = conn.prepareStatement(sql);
+			// 传递参数
+			if (parameters != null && parameters.length > 0) {
+				for (int j = 0; j < parameters.length; j++) {
+					ps.setObject(j + 1, parameters[j]);
+				}
+			}
+			
+			rs = ps.executeQuery();
+			// 得到有多少列，getMetaData()得到数据源，
+
+			while (rs.next()) {
+				// 将获得的数据封装到动态数组中
+				result.add(rs.getString(1));
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(conn, ps, rs);
+		}
+		return result;
+	}
+	
 	/**
 	 * 查询是否存在或者存在的条目数
 	 * @param sql
