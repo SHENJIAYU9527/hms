@@ -8,8 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.poi.hssf.record.DBCellRecord;
-
 import zju.ningkai.util.DBHelper;
 
 /**
@@ -42,7 +40,7 @@ public class DoLogin extends HttpServlet {
 		String warning ="";
 		if(existence==1){
 			request.setAttribute("username", username);
-			request.getRequestDispatcher("/").forward(request, response);
+			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		}else{
 			warning="用户名或密码有误！";
 			request.setAttribute("username", username);

@@ -9,6 +9,10 @@
 <body>
 
 	<div id="example"></div>
+
+	
+	
+	
 	<script src="js/reactjs/react.js" type="text/javascript"></script>
 	<script src="js/reactjs//react-dom.js" type="text/javascript"></script>
 	<script src="js/reactjs/browser.min.js" type="text/javascript"></script>
