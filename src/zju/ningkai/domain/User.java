@@ -10,6 +10,7 @@ public class User {
 	private String address;;
 	private int auth;
 	private int status;
+
 	
 	
 	
@@ -112,5 +113,9 @@ public class User {
 	public String toString(){
 		return this.userName;
 	}
+
+
+
+	
 
 }
