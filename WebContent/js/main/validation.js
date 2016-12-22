@@ -42,7 +42,7 @@ window.onload = function() {
 	// 用户名验证
 	oName.onfocus = function() {
 		name_msg.style.display = "block";
-		name_msg.innerHTML = '<i class="ati"></i>6-25个字符，一个汉字为两个字符，推荐使用中文会员名';
+		name_msg.innerHTML = '<i class="ati"></i>3-25个字符，推荐使用您的医院工号';
 
 	}
 	oName.onkeyup = function() {
@@ -66,8 +66,8 @@ window.onload = function() {
 		}
 
 		// 长度少于6个字符
-		else if (name_length < 6) {
-			name_msg.innerHTML = '<i class="err"></i> 用戶名长度不能少于6个字符！'
+		else if (name_length < 3) {
+			name_msg.innerHTML = '<i class="err"></i> 用戶名长度不能少于3个字符！'
 		}
 		// ok
 		else {
@@ -84,7 +84,7 @@ window.onload = function() {
 	oPwd.onfocus = function() {
 
 		psw_msg.style.display = "block";
-		psw_msg.innerHTML = '<i class="ati"></i>6-16个字符，推荐字母加数字加符号的组合密码。'
+		psw_msg.innerHTML = '<i class="ati"></i>4-16个字符，推荐字母加数字加符号的组合密码。'
 
 	}
 
@@ -98,7 +98,7 @@ window.onload = function() {
 			psw_msg.innerHTML = '<i class="err"></i>密码不能为空！'
 		}
 		// 长度应为6-16
-		else if (this.value.length < 6 || this.value.length > 16) {
+		else if (this.value.length < 4 || this.value.length > 16) {
 			psw_msg.innerHTML = '<i class="err"></i>密码长度应在6-16个字符之间！'
 		}
 
@@ -108,9 +108,9 @@ window.onload = function() {
 		}
 
 		// 不能全为数字
-		else if (!re_n.test(this.value)) {
-			psw_msg.innerHTML = '<i class="err"></i>密码不能全为数字！'
-		}
+//		else if (!re_n.test(this.value)) {
+//			psw_msg.innerHTML = '<i class="err"></i>密码不能全为数字！'
+//		}
 
 		// 不能全为字母
 		else if (!re_w.test(this.value)) {
@@ -131,19 +131,20 @@ window.onload = function() {
 	oEmail.onfocus = function() {
 
 		email_msg.style.display = "block";
-		email_msg.innerHTML = '<i class="ati"></i>请输入您的个人邮箱的正确格式 。'
+		email_msg.innerHTML = '<i class="ati"></i>请输入您正确的姓名信息。'
 
 	}
 	oEmail.onblur = function() {
 		var re_email = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 		// 不能为空
 		if (this.value == "") {
-			email_msg.innerHTML = '<i class="err"></i>邮箱不能为空！'
+			email_msg.innerHTML = '<i class="err"></i>姓名不能为空！'
 		}
-		// 邮箱格式正确
-		else if (!re_email.test(this.value)) {
-			email_msg.innerHTML = '<i class="err"></i>请输入正确的邮箱格式！'
-		} else {
+//		// 邮箱格式正确
+//		else if (!re_email.test(this.value)) {
+//			email_msg.innerHTML = '<i class="err"></i>请输入正确的邮箱格式！'
+//		} 
+		else {
 			debugger;
 			email_msg.innerHTML = '<i class="ok"></i>OK!'
 				var aOK=$(".ok").size();

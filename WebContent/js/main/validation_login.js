@@ -38,7 +38,7 @@ window.onload = function() {
 	// 用户名验证
 	oName.onfocus = function() {
 		name_msg.style.display = "block";
-		name_msg.innerHTML = '<i class="ati"></i>用户名为6-25个字符';
+		name_msg.innerHTML = '<i class="ati"></i>用户名为3-25个字符';
 
 	}
 	
@@ -60,8 +60,8 @@ window.onload = function() {
 		}
 
 		// 长度少于6个字符
-		else if (name_length < 6) {
-			name_msg.innerHTML = '<i class="err"></i> 用戶名长度不能少于6个字符！'
+		else if (name_length < 3) {
+			name_msg.innerHTML = '<i class="err"></i> 用戶名长度不能少于3个字符！'
 		}
 		// ok
 		else {
@@ -78,7 +78,7 @@ window.onload = function() {
 	oPwd.onfocus = function() {
 
 		psw_msg.style.display = "block";
-		psw_msg.innerHTML = '<i class="ati"></i>密码应为6-16个字符。'
+		psw_msg.innerHTML = '<i class="ati"></i>密码应为4-16个字符。'
 
 	}
 
@@ -91,9 +91,9 @@ window.onload = function() {
 		if (this.value == "") {
 			psw_msg.innerHTML = '<i class="err"></i>密码不能为空！'
 		}
-		// 长度应为6-16
-		else if (this.value.length < 6 || this.value.length > 16) {
-			psw_msg.innerHTML = '<i class="err"></i>密码长度应在6-16个字符之间！'
+		// 长度应为4-16
+		else if (this.value.length < 4|| this.value.length > 16) {
+			psw_msg.innerHTML = '<i class="err"></i>密码长度应在4-16个字符之间！'
 		}
 
 		// 不能用相同字符
@@ -102,9 +102,9 @@ window.onload = function() {
 		}
 
 		// 不能全为数字
-		else if (!re_n.test(this.value)) {
-			psw_msg.innerHTML = '<i class="err"></i>密码不能全为数字！'
-		}
+//		else if (!re_n.test(this.value)) {
+//			psw_msg.innerHTML = '<i class="err"></i>密码不能全为数字！'
+//		}
 
 		// 不能全为字母
 		else if (!re_w.test(this.value)) {

@@ -204,7 +204,7 @@ a {
 
 				<div style="padding: 30px 0px 10px; position: relative;">
 					<SPAN class="u_logo"></SPAN> <INPUT class="ipt" type="text"
-						placeholder="请输入用户名" name="username"><label></label>
+						placeholder="请输入您的工号" name="username"><label></label>
 				</div>
 				<div style="position: relative;">
 					<SPAN class="p_logo"></SPAN> <INPUT class="ipt" id="password"
@@ -212,7 +212,7 @@ a {
 				</div>
 				<div style="padding: 10px 0px 0px; position: relative;">
 					<SPAN class="e_logo"></SPAN> <INPUT class="ipt" type="text"
-						placeholder="请输入您的邮箱" name="email"><label></label>
+						placeholder="请输入您的姓名" name="email"><label></label>
 				</div>
 
 				<DIV

@@ -40,7 +40,7 @@ public class DoLogin extends HttpServlet {
 		String warning ="";
 		if(existence==1){
 			request.setAttribute("username", username);
-			request.getRequestDispatcher("/index.jsp").forward(request, response);
+			request.getRequestDispatcher("/search").forward(request, response);
 		}else{
 			warning="用户名或密码有误！";
 			request.setAttribute("username", username);
