@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="../css/app.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../js/angular/angular.js"></script>
+    <title>Hello Angular</title>
+</head>
+
+<body>
+    <!-- 数据双向绑定 -->
+    <input type="text" ng-model="name" placeholder="Your Name">
+    <h1>Hello {{name|uppercase}}</h1>
+    <!-- 过滤器 -->
+    <div ng-controller="FilterController">
+        <h3>{{today|date:'yyyy-MM-dd'}}</h3>
+        <h3>{{str|uppercase}}</h3>
+        <h3>{{str}}</h3>
+        <h3>{{number|currency}}</h3>
+        <h3>{{16|toHex}}</h3>
+        <h3>{{number|number:3}}</h3>
+        <ul>
+            <li ng-repeat="name in names">{{name}}</li>
+        </ul>
+        <p>{{objects}}</p>
+    </div>
+    <!-- 验证用户输入 -->
+    <form name="myForm" ng-init="text='ningkaidu@qq.com'">
+        <label>Email:</label>
+        <input type="email" name="emailAddress" ng-model="text" required>
+        <span ng-show="myForm.emailAddress.$error.email">不是一个合法的邮箱地址！</span>
+    </form>
+    <!-- 自定义指令 -->
+    <!-- 向指令中传递参数 -->
+    <div hospital-directive my-url="http://google.com" my-link-text="点击跳转到谷歌"></div>
+    <!-- 内置指令 -->
+    <div ng-controller="LotteryController">
+        <div ng-class="{red:x>5}" ng-if="x>5">You won!</div>
+        <button ng-click="x=generateNumber()" ng-init="x=0">获取数字</button>
+        <p>Your number is {{x}}</p>
+    </div>
+    <div ng-controller="repeatController">
+        <ul>
+            <li ng-repeat="name in names">{{name}}</li>
+        </ul>
+    </div>
+    <!-- 服务（service） -->
+    <div ng-controller="locationController">
+        {{currentUrl}}
+    </div>
+    <div ng-controller="timeoutController">
+        {{myHeader}}
+    </div>
+    <div ng-controller="intervalController">
+        {{theTime}}
+    </div>
+    <!-- 创建自定义服务Service -->
+    <div ng-controller="selfController">
+        {{hexValue}}
+    </div>
+    <!-- Http服务 -->
+    <div ng-controller="httpController">
+        <ul>
+            <li ng-repeat="x in nameList">
+                {{ x.Name + ', ' + x.Country }}
+            </li>
+        </ul>
+    </div>
+
+    <!-- Angular选择框 -->
+    <div ng-controller="selectController">
+    	<select ng-model="selectedName" ng-options="select as label for value in array"></select>
+    </div>
+    <script type="text/javascript" src="../js/angular/test.js"></script>
+</body>
+
+</html>
