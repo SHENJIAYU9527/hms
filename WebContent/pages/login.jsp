@@ -172,7 +172,7 @@ a {
 	<DIV
 		style="background: rgb(255, 255, 255); margin: -100px auto auto; border: 1px solid rgb(231, 231, 231); border-image: none; width: 400px; height: 230px; text-align: center;">
 
-		<form action="DoLogin" method="post" id="login_form" name="login_form">
+		<form action="user/login" method="post" id="login_form" name="login_form">
 			<DIV style="width: 165px; height: 96px; position: absolute;">
 				<DIV class="tou"></DIV>
 				<DIV class="initial_left_hand" id="left_hand"></DIV>

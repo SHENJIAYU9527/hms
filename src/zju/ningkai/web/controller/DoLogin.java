@@ -39,6 +39,7 @@ public class DoLogin extends HttpServlet {
 		int existence=helper.queryCount(sql, parameters);
 		String warning ="";
 		if(existence==1){
+			
 			request.setAttribute("username", username);
 			request.getRequestDispatcher("/search").forward(request, response);
 		}else{
