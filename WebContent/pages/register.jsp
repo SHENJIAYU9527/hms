@@ -59,7 +59,7 @@ body {
 }
 
 .e_logo {
-	background: url("images/login/email.png") no-repeat;
+	background: url("<%=request.getContextPath() %>/images/login/email.png") no-repeat;
 	padding: 10px 10px;
 	position: absolute;
 	top: 21px;
@@ -67,7 +67,7 @@ body {
 }
 
 .p_logo {
-	background: url("images/login/password.png") no-repeat;
+	background: url("<%=request.getContextPath() %>/images/login/password.png") no-repeat;
 	padding: 10px 10px;
 	position: absolute;
 	top: 12px;
@@ -75,7 +75,7 @@ body {
 }
 
 .ati {
-	background: url("images/status/tip.png") no-repeat;
+	background: url("<%=request.getContextPath() %>/images/status/tip.png") no-repeat;
 	padding: 10px 10px;
 	position: relative;
 	top: 12px;
@@ -83,7 +83,7 @@ body {
 }
 
 .err {
-	background: url("images/status/error.png") no-repeat;
+	background: url("<%=request.getContextPath() %>/images/status/error.png") no-repeat;
 	padding: 10px 10px;
 	position: relative;
 	top: 12px;
@@ -91,7 +91,7 @@ body {
 }
 
 .ok {
-	background: url("images/status/success.png") no-repeat;
+	background: url("<%=request.getContextPath() %>/images/status/success.png") no-repeat;
 	padding: 10px 10px;
 	position: relative;
 	top: 12px;
@@ -103,7 +103,7 @@ a {
 }
 
 .tou {
-	background: url("images/login/tou.png") no-repeat;
+	background: url("<%=request.getContextPath() %>/images/login/tou.png") no-repeat;
 	width: 97px;
 	height: 92px;
 	position: absolute;
@@ -112,7 +112,7 @@ a {
 }
 
 .left_hand {
-	background: url("images/login/left_hand.png") no-repeat;
+	background: url("<%=request.getContextPath() %>/images/login/left_hand.png") no-repeat;
 	width: 32px;
 	height: 37px;
 	position: absolute;
@@ -121,7 +121,7 @@ a {
 }
 
 .right_hand {
-	background: url("images/login/right_hand.png") no-repeat;
+	background: url("<%=request.getContextPath() %>/images/login/right_hand.png") no-repeat;
 	width: 32px;
 	height: 37px;
 	position: absolute;
@@ -130,7 +130,7 @@ a {
 }
 
 .initial_left_hand {
-	background: url("images/login/hand.png") no-repeat;
+	background: url("<%=request.getContextPath() %>/images/login/hand.png") no-repeat;
 	width: 30px;
 	height: 20px;
 	position: absolute;
@@ -139,7 +139,7 @@ a {
 }
 
 .initial_right_hand {
-	background: url("images/login/hand.png") no-repeat;
+	background: url("<%=request.getContextPath() %>/images/login/hand.png") no-repeat;
 	width: 30px;
 	height: 20px;
 	position: absolute;
@@ -148,7 +148,7 @@ a {
 }
 
 .left_handing {
-	background: url("images/login/left-handing.png") no-repeat;
+	background: url("<%=request.getContextPath() %>/images/login/left-handing.png") no-repeat;
 	width: 30px;
 	height: 20px;
 	position: absolute;
@@ -157,7 +157,7 @@ a {
 }
 
 .right_handinging {
-	background: url("images/login/right_handing.png") no-repeat;
+	background: url("<%=request.getContextPath() %>/images/login/right_handing.png") no-repeat;
 	width: 30px;
 	height: 20px;
 	position: absolute;
@@ -194,7 +194,7 @@ a {
 	<DIV
 		style="background: rgb(255, 255, 255); margin: -100px auto auto; border: 1px solid rgb(231, 231, 231); border-image: none; width: 400px; height: 265px; text-align: center;">
 		<div class="container">
-			<form action="doRegister" method="post" id="register_form"
+			<form action="<%=request.getContextPath() %>/user/doregister" method="post" id="register_form"
 				class="form-horizontal">
 				<DIV style="width: 165px; height: 96px; position: absolute;">
 					<DIV class="tou"></DIV>
@@ -212,7 +212,7 @@ a {
 				</div>
 				<div style="padding: 10px 0px 0px; position: relative;">
 					<SPAN class="e_logo"></SPAN> <INPUT class="ipt" type="text"
-						placeholder="请输入您的姓名" name="email"><label></label>
+						placeholder="请输入您的姓名" name="name"><label></label>
 				</div>
 
 				<DIV
@@ -220,7 +220,7 @@ a {
 					<P style="margin: 0px 35px 20px 45px;">
 						<SPAN style="float: left;"><A
 							style="color: rgb(204, 204, 204); margin-right: 10px;"
-							href="/javaiseasy/Login">已有账户，登陆</A></SPAN> <span style="float: right;"><input
+							href="<%=request.getContextPath() %>/user">已有账户，登陆</A></SPAN> <span style="float: right;"><input
 							type="submit" value="注册" id="register_btn">
 						</SPAN>
 					</P>
@@ -231,8 +231,8 @@ a {
 	</div>
 	<div style="text-align: center;"></div>
 
-	<SCRIPT src="js/jquery/jquery-1.10.2.min.js" type="text/javascript"></SCRIPT>
-	<SCRIPT src="js/main/validation.js" type="text/javascript"></SCRIPT>
+	<SCRIPT src="<%=request.getContextPath() %>/js/jquery/jquery-1.10.2.min.js" type="text/javascript"></SCRIPT>
+	<SCRIPT src="<%=request.getContextPath() %>/js/main/validation.js" type="text/javascript"></SCRIPT>
 
 	<SCRIPT type="text/javascript">
 		$(function() {

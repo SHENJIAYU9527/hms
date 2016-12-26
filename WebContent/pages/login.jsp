@@ -52,7 +52,7 @@ body {
 }
 
 .u_logo {
-	background: url("images/login/email.png") no-repeat;
+	background: url("<%=request.getContextPath() %>/images/login/email.png") no-repeat;
 	padding: 10px 10px;
 	position: absolute;
 	top: 43px;
@@ -60,14 +60,14 @@ body {
 }
 
 .p_logo {
-	background: url("images/login/password.png") no-repeat;
+	background: url("<%=request.getContextPath() %>/images/login/password.png") no-repeat;
 	padding: 10px 10px;
 	position: absolute;
 	top: 12px;
 	left: 40px;
 }
 .ati {
-	background: url("images/status/tip.png") no-repeat;
+	background: url("<%=request.getContextPath() %>/images/status/tip.png") no-repeat;
 	padding: 10px 10px;
 	position: relative;
 	top: 12px;
@@ -75,7 +75,7 @@ body {
 }
 
 .err {
-	background: url("images/status/error.png") no-repeat;
+	background: url("<%=request.getContextPath() %>/images/status/error.png") no-repeat;
 	padding: 10px 10px;
 	position: relative;
 	top: 12px;
@@ -83,7 +83,7 @@ body {
 }
 
 .ok {
-	background: url("images/status/success.png") no-repeat;
+	background: url("<%=request.getContextPath() %>/images/status/success.png") no-repeat;
 	padding: 10px 10px;
 	position: relative;
 	top: 12px;
@@ -94,7 +94,7 @@ a {
 }
 
 .tou {
-	background: url("images/login/tou.png") no-repeat;
+	background: url("<%=request.getContextPath() %>/images/login/tou.png") no-repeat;
 	width: 97px;
 	height: 92px;
 	position: absolute;
@@ -103,7 +103,7 @@ a {
 }
 
 .left_hand {
-	background: url("images/login/left_hand.png") no-repeat;
+	background: url("<%=request.getContextPath() %>/images/login/left_hand.png") no-repeat;
 	width: 32px;
 	height: 37px;
 	position: absolute;
@@ -112,7 +112,7 @@ a {
 }
 
 .right_hand {
-	background: url("images/login/right_hand.png") no-repeat;
+	background: url("<%=request.getContextPath() %>/images/login/right_hand.png") no-repeat;
 	width: 32px;
 	height: 37px;
 	position: absolute;
@@ -121,7 +121,7 @@ a {
 }
 
 .initial_left_hand {
-	background: url("images/login/hand.png") no-repeat;
+	background: url("<%=request.getContextPath() %>/images/login/hand.png") no-repeat;
 	width: 30px;
 	height: 20px;
 	position: absolute;
@@ -130,7 +130,7 @@ a {
 }
 
 .initial_right_hand {
-	background: url("images/login/hand.png") no-repeat;
+	background: url("<%=request.getContextPath() %>/images/login/hand.png") no-repeat;
 	width: 30px;
 	height: 20px;
 	position: absolute;
@@ -139,7 +139,7 @@ a {
 }
 
 .left_handing {
-	background: url("images/login/left-handing.png") no-repeat;
+	background: url("<%=request.getContextPath() %>/images/login/left-handing.png") no-repeat;
 	width: 30px;
 	height: 20px;
 	position: absolute;
@@ -148,7 +148,7 @@ a {
 }
 
 .right_handinging {
-	background: url("images/login/right_handing.png") no-repeat;
+	background: url("<%=request.getContextPath() %>/images/login/right_handing.png") no-repeat;
 	width: 30px;
 	height: 20px;
 	position: absolute;
@@ -172,7 +172,7 @@ a {
 	<DIV
 		style="background: rgb(255, 255, 255); margin: -100px auto auto; border: 1px solid rgb(231, 231, 231); border-image: none; width: 400px; height: 230px; text-align: center;">
 
-		<form action="user/login" method="post" id="login_form" name="login_form">
+		<form action="<%=request.getContextPath() %>/user/dologin" method="post" id="login_form" name="login_form">
 			<DIV style="width: 165px; height: 96px; position: absolute;">
 				<DIV class="tou"></DIV>
 				<DIV class="initial_left_hand" id="left_hand"></DIV>
@@ -206,8 +206,8 @@ a {
 		</form>
 	</DIV>
 	<div style="text-align: center;"></div>
-	<SCRIPT src="js/jquery/jquery-1.9.1.min.js" type="text/javascript"></SCRIPT>
-	<SCRIPT src="js/main/validation_login.js" type="text/javascript"></SCRIPT>
+	<SCRIPT src="<%=request.getContextPath() %>/js/jquery/jquery-1.9.1.min.js" type="text/javascript"></SCRIPT>
+	<SCRIPT src="<%=request.getContextPath() %>/js/main/validation_login.js" type="text/javascript"></SCRIPT>
 	<SCRIPT type="text/javascript">
 		$(function() {
 			//得到焦点

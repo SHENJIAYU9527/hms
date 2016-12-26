@@ -113,9 +113,9 @@ window.onload = function() {
 //		}
 
 		// 不能全为字母
-		else if (!re_w.test(this.value)) {
-			psw_msg.innerHTML = '<i class="err"></i>密码不能全为字母！'
-		}
+//		else if (!re_w.test(this.value)) {
+//			psw_msg.innerHTML = '<i class="err"></i>密码不能全为字母！'
+//		}
 		// OK
 		else {
 			psw_msg.innerHTML = '<i class="ok"></i>OK!'
@@ -145,11 +145,10 @@ window.onload = function() {
 //			email_msg.innerHTML = '<i class="err"></i>请输入正确的邮箱格式！'
 //		} 
 		else {
-			debugger;
+			
 			email_msg.innerHTML = '<i class="ok"></i>OK!'
 				var aOK=$(".ok").size();
 			if(aOK>=3){
-				debugger;
 				$(":submit").first().removeAttr("disabled");
 			}
 		}

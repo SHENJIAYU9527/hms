@@ -17,5 +17,6 @@ public class HelloController {
 	public @ResponseBody String sayHi(){
 		return "Hi World! This is from Spring MVC";
 	}
+	
 
 }

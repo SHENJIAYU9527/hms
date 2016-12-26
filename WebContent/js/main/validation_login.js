@@ -113,9 +113,7 @@ window.onload = function() {
 		// OK
 		else {
 			psw_msg.innerHTML = '<i class="ok"></i>OK!'
-				debugger;
 			var aOK=$(".ok").size();
-			
 			if(aOK>=2){
 				$(":submit").first().removeAttr("disabled");
 			}

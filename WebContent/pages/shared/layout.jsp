@@ -12,12 +12,14 @@
 		<div id="welcome">
 			<div>
 				<div><span>欢迎您，</span><span id="username"></span></div>
-				<button class="btn btn-primary btn-sm" onclick="logOut()">
+				<a class="btn btn-primary btn-sm" href="<%=request.getContextPath() %>/user/dologout">
                     <span>注销登录</span> 
-                </button>
+                </a>
 			</div>
 		</div>
-		<div id="hospital-tag"></div>
+		<div id="hospital-tag">
+			<img alt="宁夏医科大学总医院" src="<%=request.getContextPath() %>/images/ningxia.png">
+		</div>
 		<div id="hopital"></div>
 		<div id="menu"></div>
 		<div id="new-check"></div>

@@ -11,10 +11,8 @@
 	<%@include file="../shared/layout.jsp" %>
 	</div>
 	<div class="content">
-	<h1><%=request.getContextPath() %></h1>
 	</div>
 	<div class="footer">
-	<h1><%=request.getAttribute("username") %></h1>
 	</div>
 	<div class="dialog">
 	
