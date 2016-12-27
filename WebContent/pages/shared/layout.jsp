@@ -6,9 +6,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>layout</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/bootstrap.css">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/layout.css">
+
 </head>
 <body>
-	<div>
+	<div id="layout" class="navbar navbar-inverse navbar-fixed-top">
 		<div id="welcome">
 			<div>
 				<div><span>欢迎您，</span><span id="username"></span></div>
@@ -18,9 +20,9 @@
 			</div>
 		</div>
 		<div id="hospital-tag">
-			<img alt="宁夏医科大学总医院" src="<%=request.getContextPath() %>/images/ningxia.png">
+			<img alt="宁夏医科大学总医院" src="<%=request.getContextPath() %>/images/ningxia.png" id="img_hospital">
 		</div>
-		<div id="hopital"></div>
+		<div id="hopital"><span>宁夏医科大学总医院慢病管理工作平台</span></div>
 		<div id="menu"></div>
 		<div id="new-check"></div>
 	</div>
