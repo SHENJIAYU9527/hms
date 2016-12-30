@@ -20,25 +20,22 @@ import zju.ningkai.util.DBHelper;
 @RequestMapping("/user")
 public class LoginController {
 	
-	@RequestMapping("/")
+	@RequestMapping("/login")
 	public String toLogin(HttpServletRequest request){
 		return "login";
 	
 	}
 	@RequestMapping("/dologin")
 	public String doLogin(HttpServletRequest request){
-		try {
-			request.setCharacterEncoding("utf-8");
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
+		
 		String username=request.getParameter("loginname").trim();
 		String password=request.getParameter("loginpass").trim();
+		
 		DBHelper helper=new DBHelper();
 		String sql="select count(*) from userinfo where username=? and password=?";
 		Object[] parameters={username,password};
 		int existence=helper.queryCount(sql, parameters);
-		request.setAttribute("username", username);
+		request.getSession().setAttribute("username", username);
 		if(existence==1){
 			return "/patients/index";
 		}else{

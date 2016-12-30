@@ -1,0 +1,157 @@
+.cls {
+	clear: both;
+}
+
+a:focus {
+	outline: none;
+}
+
+.menu {
+	height: 40px;
+	display: block;
+	padding: 0px;
+	width: 800px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 40px;
+	margin-left: auto;
+}
+
+.menu ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.menu ul li {
+	/* width and height of the menu items */
+	float: left;
+	overflow: hidden;
+	position: relative;
+	line-height: 40px;
+	text-align: center;
+}
+
+.menu ul li a {
+	/* must be postioned relative  */
+	position: relative;
+	display: block;
+	width: 130px;
+	height: 40px;
+	font-family: "Microsoft YaHei";
+	font-size: 22px;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.menu ul li a span {
+	/* all layers will be absolute positioned */
+	position: absolute;
+	left: 0;
+	width: 110px;
+}
+
+.menu ul li a span.out {
+	top: 0px;
+}
+
+.menu ul li a span.over, .menu ul li a span.bg {
+	/* hide */
+	top: -40px;
+}
+
+/** 2nd example **/
+#menu ul li a {
+	color: #ffffff;
+}
+
+#menu ul li a span.over {
+	color: #000;
+	background-color: #f0f0f0;
+}
+
+#welcome {
+	position: relative;
+	margin-top: -60px;
+	margin-bottom: 40px;
+	margin-left: 1640px;
+	color: #ffffff;
+}
+
+#welcome a {
+	margin-top: 10px;
+}
+
+#layout {
+	background-color: #1C5DA5;
+	height: 100px;
+	margin-top: 0;
+}
+
+#new-check {
+	position: relative;
+	margin-left: 1260px;
+	margin-top: -100px;
+	font-family: "Microsoft YaHei";
+}
+
+#hospital-tag {
+	position: relative;
+}
+
+#img_hospital {
+	height: 110px;
+	position: absolute;
+	margin-top: -10px;
+}
+
+#hospital {
+	position: relative;
+	font-size: 34px;
+	margin-left: 420px;
+	margin-top: 12px;
+	color: #ffffff;
+	font-family: "Microsoft YaHei";
+}
+
+.red {
+	color: red;
+}
+
+.container {
+	width: 85%;
+	margin-top: 110px;
+	padding: 10px;
+}
+
+.footer {
+	background-color: #1C5DA5;
+	color: white;
+	font-size: 16px;
+	clear: both;
+	text-align: center;
+	padding: 5px;
+	border: thick;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 35px;
+}
+
+.inline div {
+	display: inline;
+	margin-left: 30px;
+	margin-right: 30px;
+	font-size: 19px;
+	font-weight: bold;
+	font-family: "Microsoft YaHei";
+}
+
+#level_nav {
+	font-size: 17px;
+	margin-top: 10px;
+	height: 100px;
+	Font-family: Arial, ¡°Microsoft YaHei¡±, ¡°Î¢ÈíÑÅºÚ¡±, sans-serif
+}
+

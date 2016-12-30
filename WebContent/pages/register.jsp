@@ -51,7 +51,7 @@ body {
 }
 
 .u_logo {
-	background: url("images/login/user.png") no-repeat;
+	background: url("<%=request.getContextPath() %>/images/login/user.png") no-repeat;
 	padding: 10px 10px;
 	position: absolute;
 	top: 43px;
@@ -220,7 +220,7 @@ a {
 					<P style="margin: 0px 35px 20px 45px;">
 						<SPAN style="float: left;"><A
 							style="color: rgb(204, 204, 204); margin-right: 10px;"
-							href="<%=request.getContextPath() %>/user">已有账户，登陆</A></SPAN> <span style="float: right;"><input
+							href="<%=request.getContextPath() %>/user/login">已有账户，登陆</A></SPAN> <span style="float: right;"><input
 							type="submit" value="注册" id="register_btn">
 						</SPAN>
 					</P>
