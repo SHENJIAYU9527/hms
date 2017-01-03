@@ -1,99 +1,55 @@
 package zju.ningkai.domain;
 /**
- * @what 患者实体类，包含患者基本信息
+ * @what 患者实体类，包含各类患者信息
  * @author ningkai
  *
  */
 public class Patient {
 	
-	
-	private String patientId;
-	private String fullname;
-	private String sex;
-	private String birthdate;
-	private String profession;
-	private String education;
-	private String identityCardNumber;
-	private String phoneNumber;
-	private String doctorId;
-	private String manageStatus;
-	private String belongingHospital;
-	private String region;
+	private PatientBasic basic;
+	private Level level;
+	//随访信息
+	private Followup fu;
+	private Diagnosis diagnosis;
+	private AvgBP avgBP;
+	private FollowupBrief briefFu;
 	
 	
-	
-	
-	public String getPatientId() {
-		return patientId;
+	public Level getLevel() {
+		return level;
 	}
-	public void setPatientId(String patientId) {
-		this.patientId = patientId;
+	public void setLevel(Level level) {
+		this.level = level;
 	}
-	public String getFullname() {
-		return fullname;
+	public PatientBasic getBasic() {
+		return basic;
 	}
-	public void setFullname(String fullname) {
-		this.fullname = fullname;
+	public void setBasic(PatientBasic basic) {
+		this.basic = basic;
 	}
-	public String getSex() {
-		return sex;
+	public Followup getFu() {
+		return fu;
 	}
-	public void setSex(String sex) {
-		this.sex = sex;
+	public void setFu(Followup fu) {
+		this.fu = fu;
 	}
-	public String getBirthdate() {
-		return birthdate;
+	public Diagnosis getDiagnosis() {
+		return diagnosis;
 	}
-	public void setBirthdate(String birthdate) {
-		this.birthdate = birthdate;
+	public void setDiagnosis(Diagnosis diagnosis) {
+		this.diagnosis = diagnosis;
 	}
-	public String getProfession() {
-		return profession;
+	public AvgBP getAvgBP() {
+		return avgBP;
 	}
-	public void setProfession(String profession) {
-		this.profession = profession;
+	public void setAvgBP(AvgBP avgBP) {
+		this.avgBP = avgBP;
 	}
-	public String getEducation() {
-		return education;
+	public FollowupBrief getBriefFu() {
+		return briefFu;
 	}
-	public void setEducation(String education) {
-		this.education = education;
-	}
-	public String getIdentityCardNumber() {
-		return identityCardNumber;
-	}
-	public void setIdentityCardNumber(String identityCardNumber) {
-		this.identityCardNumber = identityCardNumber;
-	}
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-	public String getDoctorId() {
-		return doctorId;
-	}
-	public void setDoctorId(String doctorId) {
-		this.doctorId = doctorId;
-	}
-	public String getManageStatus() {
-		return manageStatus;
-	}
-	public void setManageStatus(String manageStatus) {
-		this.manageStatus = manageStatus;
-	}
-	public String getBelongingHospital() {
-		return belongingHospital;
-	}
-	public void setBelongingHospital(String belongingHospital) {
-		this.belongingHospital = belongingHospital;
-	}
-	public String getRegion() {
-		return region;
-	}
-	public void setRegion(String region) {
-		this.region = region;
+	public void setBriefFu(FollowupBrief briefFu) {
+		this.briefFu = briefFu;
 	}
 	
 	

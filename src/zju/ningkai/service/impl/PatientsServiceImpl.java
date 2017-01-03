@@ -1,18 +1,21 @@
 package zju.ningkai.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import zju.ningkai.dao.PatientDao;
 import zju.ningkai.domain.Patient;
 import zju.ningkai.service.PatientsService;
-import zju.ningkai.util.DBHelper;
 
 public class PatientsServiceImpl implements PatientsService {
 	
-    private DBHelper helper;
+    private PatientDao dao;
 	@Override
+	//0：待随访 ； 2:暂存
 	public List<Patient> getFollowups(String doctor, int type) {
-		
-		return null;
+		List<Patient> patients=new ArrayList<Patient>();
+		patients=dao.findFollowups(doctor,type);
+		return patients;
 	}
 
 	@Override

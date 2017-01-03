@@ -4,9 +4,10 @@ import java.util.List;
 import zju.ningkai.domain.BP;
 import zju.ningkai.domain.BodySign;
 import zju.ningkai.domain.Discomfort;
-import zju.ningkai.domain.Followup;
+import zju.ningkai.domain.FollowupHis;
 import zju.ningkai.domain.HR;
 import zju.ningkai.domain.HypertensionHis;
+import zju.ningkai.domain.Level;
 import zju.ningkai.domain.ManagePlan;
 import zju.ningkai.domain.Medicine;
 import zju.ningkai.domain.Weight;
@@ -70,7 +71,7 @@ public interface PatientDataService {
 	 * @param end
 	 * @return
 	 */
-	List<Followup> getFollowupData(String patientId, String start, String end);
+	List<FollowupHis> getFollowupData(String patientId, String start, String end);
 
 	/**
 	 * @what 获取患者体征数据
@@ -92,5 +93,11 @@ public interface PatientDataService {
 	 * @return
 	 */
 	List<HypertensionHis> getHypertensionHisData(String patientId);
+	/**
+	 * @what 获取患者管理等级和依从度
+	 * @param patientId
+	 * @return
+	 */
+	Level getLevelData(String patientId);
 
 }

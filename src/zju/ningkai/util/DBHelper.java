@@ -31,12 +31,12 @@ public class DBHelper {
 		try {
 			// 得到属性文件的路径
 			InputStream is = DBHelper.class.getClassLoader().getResourceAsStream("db.properties");
-			
+
 			prop.load(is);
 			driver = prop.getProperty("driver");
 			url = prop.getProperty("url");
 			user = prop.getProperty("user");
-		
+
 			password = prop.getProperty("password");
 			Class.forName(driver);
 		} catch (FileNotFoundException e) {
@@ -55,7 +55,8 @@ public class DBHelper {
 	 */
 	public Connection getConnection() {
 		try {
-			conn = DriverManager.getConnection(url+"?useUnicode=true&characterEncoding=utf-8&useSSL=false", user, password);
+			conn = DriverManager.getConnection(url + "?useUnicode=true&characterEncoding=utf-8&useSSL=false", user,
+					password);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -98,7 +99,6 @@ public class DBHelper {
 
 	/**
 	 * 普通查询，在封装的时候麻烦,解析的时候麻烦
-	 * 
 	 * @param sql
 	 * @param parameters
 	 * @return
@@ -115,7 +115,7 @@ public class DBHelper {
 					ps.setObject(j + 1, parameters[j]);
 				}
 			}
-			
+
 			rs = ps.executeQuery();
 			// 得到有多少列，getMetaData()得到数据源，
 			int columnCount = rs.getMetaData().getColumnCount();
@@ -134,6 +134,7 @@ public class DBHelper {
 		}
 		return list;
 	}
+
 	/**
 	 * @what 查询结果为单列
 	 * @param sql
@@ -141,7 +142,7 @@ public class DBHelper {
 	 * @return String
 	 */
 	public ArrayList<String> queryString(String sql, Object[] parameters) {
-		ArrayList<String> result=new ArrayList<String>();
+		ArrayList<String> result = new ArrayList<String>();
 		try {
 			conn = getConnection();
 			ps = conn.prepareStatement(sql);
@@ -151,16 +152,16 @@ public class DBHelper {
 					ps.setObject(j + 1, parameters[j]);
 				}
 			}
-			
+
 			rs = ps.executeQuery();
 			// 得到有多少列，getMetaData()得到数据源，
 
 			while (rs.next()) {
 				// 将获得的数据封装到动态数组中
 				result.add(rs.getString(1));
-				
+
 			}
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -168,15 +169,16 @@ public class DBHelper {
 		}
 		return result;
 	}
-	
+
 	/**
 	 * 查询是否存在或者存在的条目数
+	 * 
 	 * @param sql
 	 * @param parameters
 	 * @return
 	 */
-	public int queryCount(String sql, Object[] parameters){
-		int count=0;
+	public int queryCount(String sql, Object[] parameters) {
+		int count = 0;
 		try {
 			conn = getConnection();
 			ps = conn.prepareStatement(sql);
@@ -188,12 +190,11 @@ public class DBHelper {
 			}
 			rs = ps.executeQuery();
 			// 得到有多少列，getMetaData()得到数据源，
-			
+
 			while (rs.next()) {
-				count=rs.getInt(1);
-				}
-				
-			
+				count = rs.getInt(1);
+			}
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -201,7 +202,7 @@ public class DBHelper {
 		}
 		return count;
 	}
-   
+
 	/**
 	 * 通用查询，适合所有entity，但是表的字段名必须和实体类中的属性名相同
 	 * 
@@ -212,7 +213,7 @@ public class DBHelper {
 	 * @return
 	 */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public <T extends Object> List<T> query2(T entity, String sql, Object... parameters) {
+	public <T extends Object> List<T> queryEntity(T entity, String sql, Object... parameters) {
 		List<T> list = new ArrayList<T>();
 		try {
 			Connection conn = getConnection();
@@ -265,14 +266,15 @@ public class DBHelper {
 		}
 		return list;
 	}
+	
+
 
 	/**
 	 * 增删改
-	 * 
 	 * @param sql
 	 * @param parameters
 	 * @return
-	 * @throws SQLException 
+	 * @throws SQLException
 	 */
 	public int update(String sql, Object[] parameters) {
 		int res = 0;
@@ -296,7 +298,7 @@ public class DBHelper {
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
-			
+
 			e.printStackTrace();
 			return 0;
 		} finally {

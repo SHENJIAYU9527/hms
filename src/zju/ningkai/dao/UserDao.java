@@ -2,7 +2,7 @@ package zju.ningkai.dao;
 
 import zju.ningkai.domain.User;
 
-public interface IUserDao {
+public interface UserDao {
 	/**
 	 * 根据用户名和用户密码查找用户
 	 * @param name
