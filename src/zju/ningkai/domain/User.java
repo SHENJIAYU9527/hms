@@ -1,5 +1,9 @@
 package zju.ningkai.domain;
-
+/**
+ * @what 用户实体类
+ * @author ningkai
+ *
+ */
 public class User {
 	
     private String userId;
@@ -8,6 +12,8 @@ public class User {
 	private int auth;
 	private int status;
 	private String hospital;
+	private String memo;
+	
 	
 	public String getUserId() {
 		return userId;
@@ -51,6 +57,12 @@ public class User {
 		
 		return "User [userId=" + userId + ", userName=" + userName + ", password=" + password + ", auth=" + auth
 				+ ", status=" + status + ", hospital=" + hospital + "]";
+	}
+	public String getMemo() {
+		return memo;
+	}
+	public void setMemo(String memo) {
+		this.memo = memo;
 	}
 
 	

@@ -2,8 +2,10 @@ package zju.ningkai.domain;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class FollowupHis {
-	private int seq;
+	private long seq;
 	// 不适症状预警为负值，其他预警为正值
 	private int warningSeq;
 	private int complianceSeq;
@@ -18,11 +20,11 @@ public class FollowupHis {
 	private String reason;
 	private Date followTime;
 
-	public int getSeq() {
+	public long getSeq() {
 		return seq;
 	}
 
-	public void setSeq(int seq) {
+	public void setSeq(long seq) {
 		this.seq = seq;
 	}
 
@@ -114,6 +116,7 @@ public class FollowupHis {
 		this.reason = reason;
 	}
 
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
 	public Date getFollowTime() {
 		return followTime;
 	}
@@ -124,41 +127,41 @@ public class FollowupHis {
 
 	@Override
 	public String toString() {
-		if(blood !=null && blood!=""){
-			blood="血压"+blood+";";
-		}else{
-			blood="";
+		if (blood != null && blood != "") {
+			blood = "血压" + blood + ";";
+		} else {
+			blood = "";
 		}
-		if(drug !=null && drug!=""){
-			drug="服药"+drug+";";
-		}else{
-			drug="";
+		if (drug != null && drug != "") {
+			drug = "服药" + drug + ";";
+		} else {
+			drug = "";
 		}
-		if(food !=null && food!=""){
-			food="饮食"+food+";";
-		}else{
-			food="";
+		if (food != null && food != "") {
+			food = "饮食" + food + ";";
+		} else {
+			food = "";
 		}
-		if(weight !=null && weight!=""){
-			weight="体重"+weight+";";
-		}else{
-			weight="";
+		if (weight != null && weight != "") {
+			weight = "体重" + weight + ";";
+		} else {
+			weight = "";
 		}
-		if(exercise !=null && exercise!=""){
-			exercise="运动"+exercise+";";
-		}else{
-			exercise="";
+		if (exercise != null && exercise != "") {
+			exercise = "运动" + exercise + ";";
+		} else {
+			exercise = "";
 		}
-		if(memo==null && memo.equals("")){
-			memo="";
+		if (memo == null && memo.equals("")) {
+			memo = "";
 		}
-		
-		if(reason !=null && reason!=""){
-			reason="原因："+reason+";";
-		}else{
-			reason="";
+
+		if (reason != null && reason != "") {
+			reason = "原因：" + reason + ";";
+		} else {
+			reason = "";
 		}
-		return blood+drug+weight+food+exercise+memo+reason;
+		return blood + drug + weight + food + exercise + memo + reason;
 	}
 
 }

@@ -11,7 +11,14 @@
 		<%@include file="../shared/layout.jsp"%>
 	</div>
 	<div class="container">
-	随访患者
+		<div id="level_nav" class="nav">
+			<ul class="nav nav-tabs">
+				<li><a href="#due_followups"><span>待随访患者</span><span
+						id="num_0"></span></a></li>
+				<li><a href="#temp_followups"><span>随访暂存患者</span><span
+						id="num_2"></span></a></li>
+			</ul>
+		</div>
 		<div id="due_followups"></div>
 		<div id="temp_followups"></div>
 	</div>
@@ -20,11 +27,14 @@
 			2017 浙江大学 宁夏医科大学总医院</span>
 	</div>
 	<div class="dialog"></div>
+	<script
+		src="<%=request.getContextPath()%>/js/jquery/jquery.dataTables.js"></script>
 	<script src="<%=request.getContextPath()%>/js/cdms/followup.js"></script>
 	<script type="text/javascript">
 		$(function() {
-			getDueFU("001");
+			//getDueFU(0);
 		});
 	</script>
+
 </body>
 </html>

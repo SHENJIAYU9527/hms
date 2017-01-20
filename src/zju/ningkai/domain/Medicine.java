@@ -5,18 +5,18 @@ package zju.ningkai.domain;
  *
  */
 public class Medicine {
-	private int seq;
+	private long seq;
 	private String medicineName;
 	private String dosage;
 
-	public int getSeq() {
+
+	public long getSeq() {
 		return seq;
 	}
-
-	public void setSeq(int seq) {
+	public void setSeq(long seq) {
 		this.seq = seq;
 	}
-
+	
 	public String getMedicineName() {
 		return medicineName;
 	}

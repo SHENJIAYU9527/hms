@@ -4,15 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import zju.ningkai.dao.PatientDao;
+import zju.ningkai.dao.impl.PatientDaoImpl;
 import zju.ningkai.domain.Patient;
 import zju.ningkai.service.PatientsService;
 
 public class PatientsServiceImpl implements PatientsService {
 	
-    private PatientDao dao;
+   
 	@Override
 	//0：待随访 ； 2:暂存
 	public List<Patient> getFollowups(String doctor, int type) {
+    	PatientDao dao=new PatientDaoImpl();
 		List<Patient> patients=new ArrayList<Patient>();
 		patients=dao.findFollowups(doctor,type);
 		return patients;

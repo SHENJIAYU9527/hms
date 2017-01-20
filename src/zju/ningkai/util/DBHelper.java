@@ -55,8 +55,8 @@ public class DBHelper {
 	 */
 	public Connection getConnection() {
 		try {
-			conn = DriverManager.getConnection(url + "?useUnicode=true&characterEncoding=utf-8&useSSL=false", user,
-					password);
+			//+ "?useUnicode=true&characterEncoding=utf-8&useSSL=false"
+			conn = DriverManager.getConnection(url, user, password);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -99,6 +99,7 @@ public class DBHelper {
 
 	/**
 	 * 普通查询，在封装的时候麻烦,解析的时候麻烦
+	 * 
 	 * @param sql
 	 * @param parameters
 	 * @return
@@ -266,11 +267,10 @@ public class DBHelper {
 		}
 		return list;
 	}
-	
-
 
 	/**
 	 * 增删改
+	 * 
 	 * @param sql
 	 * @param parameters
 	 * @return

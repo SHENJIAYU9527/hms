@@ -1,6 +1,8 @@
 package zju.ningkai.domain;
 
 import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 /**
  * @what 血压实体类
  * @author ningkai
@@ -8,7 +10,7 @@ import java.util.Date;
  */
 public class BP {
 	
-	private int seq;
+	private long seq;
 	private Date recordTime;
 	private float systolicpressure;
 	private float diastolicpressure;
@@ -16,13 +18,13 @@ public class BP {
 	private int excuteScheduleFlag;
 	
 	
-	public int getSeq() {
+	public long getSeq() {
 		return seq;
 	}
-	public void setSeq(int seq) {
+	public void setSeq(long seq) {
 		this.seq = seq;
 	}
-	
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
 	public Date getRecordTime() {
 		return recordTime;
 	}

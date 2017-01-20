@@ -14,13 +14,19 @@ public interface UserDao {
 	 * 添加用户
 	 * @param user
 	 */
-	void add(User user);
+	int add(User user);
 	/**
 	 * 根据用户名查询用户
 	 * @param name
 	 * @return
 	 */
 	User find(String name);
+	/**
+	 * 判断用户是否已经存在
+	 * @param userId
+	 * @return
+	 */
+	int isExist(String userId);
 	
 
 }

@@ -2,6 +2,8 @@ package zju.ningkai.domain;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 /**
  * @what 患者体征实体类
  * @author ningkai
@@ -47,6 +49,7 @@ public class BodySign {
 		this.distolicpressure = distolicpressure;
 	}
 
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
 	public Date getRecordTime() {
 		return recordTime;
 	}

@@ -2,27 +2,28 @@ package zju.ningkai.domain;
 
 public class AvgBP {
 	
-	private float avgSBP;
-	private float avgDBP;
+	private double avgSBP;
+	private double avgDBP;
 	private int duration;
 	
-	public float getAvgSBP() {
-		return avgSBP;
-	}
-	public void setAvgSBP(float avgSBP) {
-		this.avgSBP = avgSBP;
-	}
-	public float getAvgDBP() {
-		return avgDBP;
-	}
-	public void setAvgDBP(float avgDBP) {
-		this.avgDBP = avgDBP;
-	}
+	
 	public int getDuration() {
 		return duration;
 	}
 	public void setDuration(int duration) {
 		this.duration = duration;
+	}
+	public double getAvgSBP() {
+		return avgSBP;
+	}
+	public void setAvgSBP(double avgSBP) {
+		this.avgSBP = avgSBP;
+	}
+	public double getAvgDBP() {
+		return avgDBP;
+	}
+	public void setAvgDBP(double avgDBP) {
+		this.avgDBP = avgDBP;
 	}
 	
 	

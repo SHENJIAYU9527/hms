@@ -1,5 +1,9 @@
 package zju.ningkai.domain;
 
+import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 /**
  * @what 患者实体类，包含患者基本信息
  * @author ningkai
@@ -10,7 +14,7 @@ public class PatientBasic {
 	private String patientIdentifier;
 	private String fullname;
 	private String sexCode;
-	private String birthdate;
+	private Date birthdate;
 	private String profession;
 	private String education;
 	private String identityCardNumber;
@@ -54,14 +58,7 @@ public class PatientBasic {
 
 	
 
-	public String getBirthdate() {
-		return birthdate;
-	}
-
-	public void setBirthdate(String birthdate) {
-		this.birthdate = birthdate;
-	}
-
+	
 	public String getProfession() {
 		return profession;
 	}
@@ -116,6 +113,15 @@ public class PatientBasic {
 
 	public void setSexCode(String sexCode) {
 		this.sexCode = sexCode;
+	}
+
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+	public Date getBirthdate() {
+		return birthdate;
+	}
+
+	public void setBirthdate(Date birthdate) {
+		this.birthdate = birthdate;
 	}
 
 }

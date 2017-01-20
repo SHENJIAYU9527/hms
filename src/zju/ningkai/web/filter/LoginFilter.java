@@ -31,7 +31,9 @@ public class LoginFilter implements Filter {
 		HttpServletResponse hResponse = (HttpServletResponse) response;
 		Object user = hRequest.getSession().getAttribute("username");
 		// 过去用户请求URI
+		
 		String path = hRequest.getRequestURI();
+		System.out.println(path);
 		if(path.equals("/javaiseasy/")){
 			chain.doFilter(request, response);
 			return;

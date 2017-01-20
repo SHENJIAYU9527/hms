@@ -14,16 +14,10 @@ import zju.ningkai.util.DBHelper;
 
 public class PatientDaoImpl implements PatientDao {
 
-	private DBHelper helper;
-
-	public PatientDaoImpl(DBHelper helper) {
-		this.helper = helper;
-	}
-
 	public List<Patient> findFollowups(String userId, int type) {
 		List<Patient> patients = new ArrayList<Patient>();
-		Object[] parameters = { userId };
-		String IDs_sql = "select patientidentifier from personpatient where doctor=?";
+		Object[] parameters = { userId, type };
+		String IDs_sql = "select PersonPatient.patientidentifier from personpatient,FollowupTime where PersonPatient.doctor=? and FollowupTime.FollowMark=? and PersonPatient.patientidentifier=FollowupTime.PatientIdentifier";
 		List<String> patientList = this.patientIDs(IDs_sql, parameters);
 		for (String id : patientList) {
 			PatientBasic basic = this.getBasic(id);
@@ -32,7 +26,7 @@ public class PatientDaoImpl implements PatientDao {
 			Diagnosis diagnosis = this.getDiagnosis(id);
 			AvgBP avgBP = this.getAvgBP(id, 14);
 			avgBP.setDuration(14);
-			FollowupBrief brief=this.getFollowupBrief(id,1);
+			FollowupBrief brief = this.getFollowupBrief(id, 1);
 			Patient patient = new Patient();
 			patient.setBasic(basic);
 			patient.setLevel(level);
@@ -41,6 +35,7 @@ public class PatientDaoImpl implements PatientDao {
 			patient.setAvgBP(avgBP);
 			patient.setBriefFu(brief);
 			patients.add(patient);
+
 		}
 
 		return patients;
@@ -48,17 +43,23 @@ public class PatientDaoImpl implements PatientDao {
 
 	/**
 	 * 获取患者随访历史概要信息
+	 * 
 	 * @param id
 	 * @param type
 	 * @return
 	 */
-	private FollowupBrief getFollowupBrief(String id,int type) {
-		String sql_conut="SELECT count(*) FROM [dbo].[followupvisit] WHERE patientidentifier=? AND followstate=?";
-		Object[] parameters = { id ,type};
-		int count=helper.queryCount(sql_conut, parameters);
-		String sql_latest="SELECT top 1 followtime FROM [dbo].[followupvisit] WHERE patientidentifier=? AND followstate=? ORDER BY seq DESC";
-		String latestFollowup=helper.queryString(sql_latest, parameters).get(0);
-		FollowupBrief brief=new FollowupBrief();
+	private FollowupBrief getFollowupBrief(String id, int type) {
+		String sql_conut = "SELECT count(*) FROM [dbo].[followupvisit] WHERE patientidentifier=? AND followstate=?";
+		Object[] parameters = { id, type };
+		DBHelper helper = new DBHelper();
+		int count = helper.queryCount(sql_conut, parameters);
+		String latestFollowup = null;
+		if (count > 0) {
+			String sql_latest = "SELECT top 1 followtime FROM [dbo].[followupvisit] WHERE patientidentifier=? AND followstate=? ORDER BY seq DESC";
+			latestFollowup = helper.queryString(sql_latest, parameters).get(0);
+		}
+
+		FollowupBrief brief = new FollowupBrief();
 		brief.setTimes(count);
 		brief.setLatestFu(latestFollowup);
 		return brief;
@@ -66,13 +67,15 @@ public class PatientDaoImpl implements PatientDao {
 
 	/**
 	 * 获取患者最近一段时间内的平均血压值
+	 * 
 	 * @param id
 	 * @param duration
 	 * @return
 	 */
 	private AvgBP getAvgBP(String id, int duration) {
-		String sql = "SELECT round(avg(systolicpressure),0) AS avgsbp, round(avg(diastolicpressure),0) AS avgdbp FROM [dbo].[bloodpressurerecord] WHERE patientidentifier=? AND datediff(DAY, recordtime, getdate())<=?";
-		Object[] parameters = { id ,duration};
+		String sql = "SELECT round(isnull(avg(isnull(systolicpressure,0)),0),0) AS avgsbp, round(isnull(avg(isnull(diastolicpressure,0)),0),0) AS avgdbp FROM [dbo].[bloodpressurerecord] WHERE patientidentifier=? AND datediff(DAY, recordtime, getdate())<=?";
+		Object[] parameters = { id, duration };
+		DBHelper helper = new DBHelper();
 		AvgBP avgBP = (AvgBP) helper.queryEntity(new AvgBP(), sql, parameters).get(0);
 		return avgBP;
 	}
@@ -86,6 +89,7 @@ public class PatientDaoImpl implements PatientDao {
 	private Diagnosis getDiagnosis(String id) {
 		String sql = "SELECT top 1 diagnosisidentifier, diagnosisitemname, diagnosisdate FROM [dbo].[diagnosis] WHERE patientidentifier=? ORDER BY diagnosisidentifier DESC";
 		Object[] parameters = { id };
+		DBHelper helper = new DBHelper();
 		Diagnosis diag = (Diagnosis) helper.queryEntity(new Diagnosis(), sql, parameters).get(0);
 		return diag;
 	}
@@ -100,6 +104,7 @@ public class PatientDaoImpl implements PatientDao {
 	private Followup getFollowup(String id, int type) {
 		String sql = "SELECT top 1 seq, followtime, followmark, starttime FROM [dbo].[followuptime] WHERE patientidentifier=? AND followmark=? ORDER BY seq DESC";
 		Object[] parameters = { id, type };
+		DBHelper helper = new DBHelper();
 		Followup fu = helper.queryEntity(new Followup(), sql, parameters).get(0);
 		return fu;
 
@@ -114,6 +119,7 @@ public class PatientDaoImpl implements PatientDao {
 	private Level getLevel(String id) {
 		String sql = "SELECT seq, managelevel, complication FROM [dbo].[patientlevel] WHERE patientidentifier=?";
 		Object[] parameters = { id };
+		DBHelper helper = new DBHelper();
 		Level level = (Level) helper.queryEntity(new Level(), sql, parameters).get(0);
 		return level;
 	}
@@ -127,6 +133,7 @@ public class PatientDaoImpl implements PatientDao {
 	private PatientBasic getBasic(String id) {
 		String sql = "SELECT patientidentifier, fullname, sexcode, birthdate, profession, education, identitycardnumber, phonenumber, doctor, managemark, hospital, region FROM [dbo].[personpatient] WHERE patientidentifier=? ";
 		Object[] parameters = { id };
+		DBHelper helper = new DBHelper();
 		PatientBasic basic = (PatientBasic) helper.queryEntity(new PatientBasic(), sql, parameters).get(0);
 		return basic;
 	}
@@ -137,6 +144,7 @@ public class PatientDaoImpl implements PatientDao {
 	@Override
 	public List<String> patientIDs(String sql, Object[] parameters) {
 
+		DBHelper helper = new DBHelper();
 		List<String> IDs = helper.queryString(sql, parameters);
 
 		return IDs;

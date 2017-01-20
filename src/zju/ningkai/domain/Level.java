@@ -7,15 +7,15 @@ package zju.ningkai.domain;
  */
 public class Level {
 
-	private int seq;
+	private long seq;
 	private String manageLevel;
 	private String complication;
 
-	public int getSeq() {
+	public long getSeq() {
 		return seq;
 	}
 
-	public void setSeq(int seq) {
+	public void setSeq(long seq) {
 		this.seq = seq;
 	}
 
