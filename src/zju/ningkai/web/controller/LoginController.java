@@ -31,9 +31,9 @@ public class LoginController {
 		UserService service = new UserServiceImpl();
 		String username = request.getParameter("loginname").trim();
 		String password = request.getParameter("loginpass").trim();
-		System.out.println(password);
+		
 		User user = service.login(username, password);
-		System.out.println(user.getUserName());
+	
 		String url = "login";
 		if (user != null) {
 			url = "/patients/index";

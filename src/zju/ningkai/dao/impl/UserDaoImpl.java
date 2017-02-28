@@ -14,7 +14,11 @@ public class UserDaoImpl implements UserDao {
 		DBHelper helper=new DBHelper();
 		String sql="SELECT * FROM [dbo].[user] WHERE userid=? AND password=?";
 		Object[] parameters = { name,password };
-		User user=helper.queryEntity(new User(), sql, parameters).get(0);
+		User user=null;
+		if(helper.queryEntity(new User(), sql, parameters).size()!=0){
+			user=helper.queryEntity(new User(), sql, parameters).get(0);
+		}
+		
 		return user;
 	}
 

@@ -22,8 +22,10 @@ public class PatientsServiceImpl implements PatientsService {
 
 	@Override
 	public List<Patient> getPatients(String doctor, int level) {
-		// TODO Auto-generated method stub
-		return null;
+		PatientDao dao=new PatientDaoImpl();
+		List<Patient> patients=new ArrayList<Patient>();
+		patients=dao.findPatients(doctor, level);
+		return patients;
 	}
 
 	@Override

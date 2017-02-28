@@ -12,14 +12,13 @@ import zju.ningkai.domain.Patient;
 public interface PatientDao {
 
 	/**
-	 * 根据管理师的权限加载对应管理的患者列表
+	 * 根据管理师的权限加载对应管理对应患者列表
 	 * 
 	 * @param userId
-	 * @param password
-	 * @param auth
+	 * @param level
 	 * @return
 	 */
-	List<Patient> findPatients(String userId, int auth);
+	List<Patient> findPatients(String userId, int level);
 
 	/**
 	 * 根据管理师的权限加载对应管理的工作总结
@@ -71,5 +70,7 @@ public interface PatientDao {
 	 * @return
 	 */
 	List<String> patientIDs(String sql, Object[] parameters);
+
+	int getAuth(String doctor);
 
 }

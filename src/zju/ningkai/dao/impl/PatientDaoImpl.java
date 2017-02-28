@@ -157,9 +157,20 @@ public class PatientDaoImpl implements PatientDao {
 	}
 
 	@Override
-	public List<Patient> findPatients(String userId, int auth) {
+	public List<Patient> findPatients(String doctor, int level) {
+		int auth=this.getAuth(doctor);
+		Object[]  parameters={doctor,level};
+		String pList_sql="SELECT PersonPatient.PatientIdentifier, PersonPatient.FullName, PersonPatient.BirthDate, PersonPatient.SexCode, PersonPatient.ManageDoctor, Admission.AdmitDateTime, PatientLevel.Complication, Diagnosis.DiagnosisItemName, (SELECT top 1 FollowTime FROM [dbo].[FollowupVisit] WHERE PatientIdentifier=PersonPatient.PatientIdentifier ORDER BY FollowTime DESC) AS LatestFollowTime"
+	         	+"FROM PersonPatient, PatientLevel, Admission, Diagnosis WHERE PersonPatient.PatientIdentifier = PatientLevel.PatientIdentifier AND PatientLevel.ManageLevel = ? AND Admission.PatientIdentifier = PersonPatient.PatientIdentifier AND PersonPatient.PatientIdentifier = Diagnosis.PatientIdentifier AND PersonPatient.ManageMark != 2";
+		if(auth==0){
+			pList_sql=pList_sql+" AND PersonPatient.Doctor = ?";
+			
+		}
+		DBHelper helper = new DBHelper();
+		List<Patient> patients=helper.queryEntity(new Patient(), pList_sql, parameters);
 
-		return null;
+
+		return patients;
 	}
 
 	public List<Patient> findWarnings(String userId, int auth) {
@@ -176,6 +187,18 @@ public class PatientDaoImpl implements PatientDao {
 	public Patient find(String patientId) {
 
 		return null;
+	}
+
+	@Override
+	/**
+	 * 获取医生用户的权限级别
+	 */
+	public int getAuth(String doctor) {
+		String auth_sql="SELECT Auth FROM [dbo].[User] WHERE UserId = ?";
+		Object[] parameters = { doctor };
+		DBHelper helper = new DBHelper();
+		int auth=Integer.valueOf(helper.queryString(auth_sql, parameters).get(0));
+		return auth;
 	}
 
 }

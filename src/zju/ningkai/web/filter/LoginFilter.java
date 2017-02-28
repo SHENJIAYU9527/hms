@@ -33,7 +33,6 @@ public class LoginFilter implements Filter {
 		// 过去用户请求URI
 		
 		String path = hRequest.getRequestURI();
-		System.out.println(path);
 		if(path.equals("/javaiseasy/")){
 			chain.doFilter(request, response);
 			return;
@@ -53,7 +52,6 @@ public class LoginFilter implements Filter {
 			}
 		}
 		if (user == null) {
-			System.out.println("用户未登录");
 			hResponse.sendRedirect("/javaiseasy/user/login");
 		}
 		chain.doFilter(hRequest, hResponse);
