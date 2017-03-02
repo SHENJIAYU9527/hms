@@ -3,6 +3,7 @@ package zju.ningkai.dao;
 import java.util.List;
 
 import zju.ningkai.domain.Patient;
+import zju.ningkai.domain.Patient_1;
 
 /**
  * @what 患者操作接口
@@ -18,7 +19,7 @@ public interface PatientDao {
 	 * @param level
 	 * @return
 	 */
-	List<Patient> findPatients(String userId, int level);
+	List<Patient_1> findPatients(String userId, int level);
 
 	/**
 	 * 根据管理师的权限加载对应管理的工作总结

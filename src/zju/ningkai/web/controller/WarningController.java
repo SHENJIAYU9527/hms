@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * @what 用于随访信息显示
+ * @what 患者预警模块
  * @author ningkai
  *
  */

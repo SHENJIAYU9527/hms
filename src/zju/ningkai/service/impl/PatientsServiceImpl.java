@@ -6,6 +6,7 @@ import java.util.List;
 import zju.ningkai.dao.PatientDao;
 import zju.ningkai.dao.impl.PatientDaoImpl;
 import zju.ningkai.domain.Patient;
+import zju.ningkai.domain.Patient_1;
 import zju.ningkai.service.PatientsService;
 
 public class PatientsServiceImpl implements PatientsService {
@@ -21,9 +22,9 @@ public class PatientsServiceImpl implements PatientsService {
 	}
 
 	@Override
-	public List<Patient> getPatients(String doctor, int level) {
+	public List<Patient_1> getPatients(String doctor, int level) {
 		PatientDao dao=new PatientDaoImpl();
-		List<Patient> patients=new ArrayList<Patient>();
+		List<Patient_1> patients=new ArrayList<Patient_1>();
 		patients=dao.findPatients(doctor, level);
 		return patients;
 	}

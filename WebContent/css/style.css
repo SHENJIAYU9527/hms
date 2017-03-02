@@ -122,8 +122,11 @@ a:focus {
 	width: 85%;
 	margin-top: 110px;
 	padding: 10px;
+	margin-bottom:50px;
 }
-
+#patients{
+	margin-top:-25px;
+}
 .footer {
 	background-color: #1C5DA5;
 	color: white;
@@ -132,7 +135,7 @@ a:focus {
 	text-align: center;
 	padding: 5px;
 	border: thick;
-	position: absolute;
+	position: fixed;
 	left: 0;
 	right: 0;
 	bottom: 0;
@@ -153,5 +156,9 @@ a:focus {
 	margin-top: 10px;
 	height: 100px;
 	Font-family: Arial, ¡°Microsoft YaHei¡±, ¡°Î¢ÈíÑÅºÚ¡±, sans-serif
+}
+
+.greybg{
+	background:#eee;
 }
 

@@ -10,6 +10,7 @@ import zju.ningkai.domain.FollowupBrief;
 import zju.ningkai.domain.Level;
 import zju.ningkai.domain.Patient;
 import zju.ningkai.domain.PatientBasic;
+import zju.ningkai.domain.Patient_1;
 import zju.ningkai.util.DBHelper;
 
 public class PatientDaoImpl implements PatientDao {
@@ -157,17 +158,18 @@ public class PatientDaoImpl implements PatientDao {
 	}
 
 	@Override
-	public List<Patient> findPatients(String doctor, int level) {
+	public List<Patient_1> findPatients(String doctor, int level) {
 		int auth=this.getAuth(doctor);
-		Object[]  parameters={doctor,level};
+		Object[]  parameters={level,doctor};
 		String pList_sql="SELECT PersonPatient.PatientIdentifier, PersonPatient.FullName, PersonPatient.BirthDate, PersonPatient.SexCode, PersonPatient.ManageDoctor, Admission.AdmitDateTime, PatientLevel.Complication, Diagnosis.DiagnosisItemName, (SELECT top 1 FollowTime FROM [dbo].[FollowupVisit] WHERE PatientIdentifier=PersonPatient.PatientIdentifier ORDER BY FollowTime DESC) AS LatestFollowTime"
-	         	+"FROM PersonPatient, PatientLevel, Admission, Diagnosis WHERE PersonPatient.PatientIdentifier = PatientLevel.PatientIdentifier AND PatientLevel.ManageLevel = ? AND Admission.PatientIdentifier = PersonPatient.PatientIdentifier AND PersonPatient.PatientIdentifier = Diagnosis.PatientIdentifier AND PersonPatient.ManageMark != 2";
+	         	+" FROM PersonPatient, PatientLevel, Admission, Diagnosis WHERE PersonPatient.PatientIdentifier = PatientLevel.PatientIdentifier AND PatientLevel.ManageLevel = ? AND Admission.PatientIdentifier = PersonPatient.PatientIdentifier AND PersonPatient.PatientIdentifier = Diagnosis.PatientIdentifier AND PersonPatient.ManageMark != 2";
 		if(auth==0){
 			pList_sql=pList_sql+" AND PersonPatient.Doctor = ?";
 			
 		}
 		DBHelper helper = new DBHelper();
-		List<Patient> patients=helper.queryEntity(new Patient(), pList_sql, parameters);
+		List<Patient_1> patients=helper.queryEntity(new Patient_1(), pList_sql, parameters);
+		
 
 
 		return patients;

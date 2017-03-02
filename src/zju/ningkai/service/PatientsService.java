@@ -3,6 +3,7 @@ package zju.ningkai.service;
 import java.util.List;
 
 import zju.ningkai.domain.Patient;
+import zju.ningkai.domain.Patient_1;
 /**
  * @what 列表服务
  * @author ningkai
@@ -22,7 +23,7 @@ public interface PatientsService {
 	 * @param level
 	 * @return
 	 */
-	List<Patient> getPatients(String doctor,int level);
+	List<Patient_1> getPatients(String doctor,int level);
 	/**
 	 * @what 查询预警患者
 	 * @param doctor

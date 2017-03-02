@@ -5,16 +5,13 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import zju.ningkai.domain.Patient;
+import zju.ningkai.domain.Patient_1;
 import zju.ningkai.service.PatientsService;
 import zju.ningkai.service.impl.PatientsServiceImpl;
 import zju.ningkai.util.DBHelper;
@@ -30,20 +27,19 @@ public class PatientListController {
 	
 	@RequestMapping("/show")
 	public String showPatientList(HttpServletRequest request){
-		System.out.println("患者列表");
 		return "/patients/index";
 	
 	}
-	@RequestMapping("/list")
+	@RequestMapping("/plist")
 	@ResponseBody
 	public String getPatients(@RequestParam String doctor, @RequestParam int type) throws IOException {
-		List<Patient> patients = new ArrayList<Patient>();
+		List<Patient_1> patients = new ArrayList<Patient_1>();
 		ObjectMapper objectMapper = new ObjectMapper();
 		PatientsService patientsService = new PatientsServiceImpl();
 		long start=new Date().getTime();
 		patients = patientsService.getPatients(doctor, type);
 		long end=new Date().getTime();
-		System.out.println("费时："+(end-start)/1000+"秒");
+		System.out.println("费时："+(end-start)+"毫秒");
 		String jsonString = objectMapper.writeValueAsString(patients);
 		System.out.println(jsonString);
 		return jsonString;

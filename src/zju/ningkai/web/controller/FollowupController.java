@@ -33,7 +33,7 @@ public class FollowupController {
 		return "/followup/index";
 	}
 
-	@RequestMapping("/patients")
+	@RequestMapping("/flist")
 	@ResponseBody
 	public String dueFU(@RequestParam String doctor, @RequestParam int followupType) throws IOException {
 		List<Patient> patients = new ArrayList<Patient>();

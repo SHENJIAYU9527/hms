@@ -43,9 +43,11 @@
 			</a>
 		</div>
 		<div id="welcome">
+		    <%String name=(String)session.getAttribute("username"); %>
+		    <%String id=(String)session.getAttribute("userid"); %>
 			<div>
 				<div>
-					<span>欢迎您，</span><span id="username">杜老师</span>
+					<span>欢迎您，</span><span id="username"><%=name%></span><input id="doctor_id" type="hidden" value="<%=id%>"/>
 				</div>
 				&nbsp;&nbsp;<a class="btn btn-primary btn-sm"
 					href="<%=request.getContextPath()%>/user/dologout"> <span>注销登录</span>

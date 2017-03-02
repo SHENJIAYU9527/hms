@@ -5,6 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>患者列表</title>
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/css/jquery.dataTables.css">
 </head>
 <body>
 	<div class="header">
@@ -23,26 +25,49 @@
 			</div>
 		</div>
 		<div id="level_nav" class="nav">
-			<ul class="nav nav-tabs">
-				<li><a href="#patients_3"><span>新患者</span><span id="num_3"></span></a></li>
-				<li><a href="#patients_1"><span>一级管理患者</span><span id="num_1"></span></a></li>
-				<li><a href="#patients_2"><span>二级管理患者</span><span id="num_2"></span></a></li>
-				<li><a href="#patients_0"><span>初级管理患者</span><span id="num_0"></span></a></li>
-				<li><a href="#patients_end"><span>终止管理患者</span><span id="num_end"></span></a></li>
+
+			<ul id="level_ul" class="nav nav-tabs">
+				<li onclick="getPatients(3)" class="greybg"><a><span>新患者</span><span
+						id="num_3"></span></a></li>
+				<li onclick="getPatients(1)"><a><span>一级管理患者</span><span
+						id="num_1"></span></a></li>
+				<li onclick="getPatients(2)"><a><span>二级管理患者</span><span
+						id="num_2"></span></a></li>
+				<li onclick="getPatients(0)"><a><span>初级管理患者</span><span
+						id="num_0"></span></a></li>
+				<li onclick="getEndPatients()"><a><span>终止管理患者</span><span
+						id="num_end"></span></a></li>
 			</ul>
 		</div>
-		<div id="patients">
-			<div id="patients_3"></div>
-			<div id="patients_1"></div>
-			<div id="patients_2"></div>
-			<div id="patients_0"></div>
-			<div id="patients_end"></div>
-		</div>
+		<div id="patients"></div>
 	</div>
+
+
 	<div class="footer">
 		<span class="glyphicon glyphicon-copyright-mark"></span><span>
 			2017 浙江大学 宁夏医科大学总医院</span>
 	</div>
 	<div class="dialog"></div>
+	<script
+		src="<%=request.getContextPath()%>/js/jquery/jquery.dataTables.js"></script>
+	<script
+		src="<%=request.getContextPath()%>/js/cdms/patients/patientList.js"></script>
+	<script type="text/javascript">
+	//修改导航栏样式
+	$(document).ready(function(){
+		  var lis=$("#level_ul li");
+		  debugger;
+		  lis.click(function(){
+		    lis.each(function(){
+		      $(this).removeClass("greybg");
+		    })
+		    $(this).addClass("greybg");
+		  })
+		})
+		$(function() {
+			
+			getPatients(3);
+		});
+	</script>
 </body>
 </html>

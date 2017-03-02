@@ -12,7 +12,7 @@ import zju.ningkai.service.UserService;
 import zju.ningkai.service.impl.UserServiceImpl;
 
 /**
- * @waht 用户登录、注销控制器
+ * @what 用于用户登录和注销
  * @author ningkai
  *
  */
@@ -37,7 +37,8 @@ public class LoginController {
 		String url = "login";
 		if (user != null) {
 			url = "/patients/index";
-			request.getSession().setAttribute("username", username);
+			request.getSession().setAttribute("userid", username);
+			request.getSession().setAttribute("username", user.getUserName());
 		}
 		return url;
 
